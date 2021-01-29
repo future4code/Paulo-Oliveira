@@ -1,0 +1,3 @@
+# Aprendizados da semana
+
+    Nessa semana aprendi sobre **Terminal**, **Git** e os comandos básicos do **VSCode**, tive uma ótima primeira experiência com a turma e os instrutores, a galera está unida e demonstrando suporte a quem passa por quaisquer problemas. Não tinha o costume de usar o **Terminal** e foi interessante utiliza-lo, não tive muita dificuldade pra me adaptar e em poucos dias já me sinto seguro no software. O **Git** já sabia um pouquinho mas a aula e as tarefas reforçaram ainda mais os meus conhecimentos. O **VSCode** já se encontra na minha rotina há um bom tempo, mas é sempre bom rever conceitos básicos para refrescar a mente.
