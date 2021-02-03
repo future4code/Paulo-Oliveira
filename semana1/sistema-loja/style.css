@@ -1,0 +1,149 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    min-height: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    background-color: rgb(185, 218, 196);
+}
+
+/* Principal */
+
+header {
+    background-image: url(img/header.jpg);
+    padding: 1px;
+}
+
+.cabecalho {
+    background-color: rgba(34, 34, 27, 0.5);
+    color: white;
+}
+
+.cabecalho h1 {
+    font-size: 40px;
+}
+
+.cabecalho span {
+    font-size: 50px;
+    color: rgb(162, 248, 50);
+}
+
+.cabecalho p {
+    font-weight: 700;
+    font-size: 25px;
+    color: rgb(168, 236, 129);
+}
+
+.cabecalho a {
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.cabecalho a:hover {
+    color: rgb(182, 243, 136);
+}
+
+.container {
+    height: 100vh;
+    margin: 0 auto;
+    width: 500px;
+    clear: both;
+}
+
+footer {
+    background-color: rgb(71, 90, 67);
+    color: white;
+    font-size: 20px;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    margin-top: 50px;
+}
+
+footer a {
+    padding: 10px;
+}
+
+/* Controle de Estoque */
+
+.controle-estoque {
+    display: inline-block;
+    padding-bottom: 130px;
+}
+
+.controle-estoque h2 {
+    font-size: 40px;
+    color: rgb(89, 134, 29);
+}
+
+.estoque {
+    display: inline-block;
+    margin: 0 auto;
+    border-radius: 5%;
+    background-color: rgba(112, 219, 121, 0.5);
+    padding: 20px;
+    padding-bottom: 28px;
+}
+
+th, td {
+    padding: 5px;
+    border: 1px solid rgb(137, 170, 94);
+}
+
+/* Add Produto */
+
+.produtos h2 {
+    font-size: 40px;
+    color: rgb(89, 134, 29);
+}
+
+.add-produto {
+    display: inline-block;
+    padding: 20px;
+    border-radius: 5%;
+    background-color: rgba(112, 219, 121, 0.5);
+    
+}
+
+.add-produto label, .add-produto input{
+    padding: 10px;
+    margin: 5px;
+    width: 90%;
+    clear: both;
+}
+
+.add-produto button {
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+    background-color: rgb(179, 241, 170);
+}
+
+/* Funcionarios */
+
+.funcionarios h2 {
+    font-size: 40px;
+    color: rgb(89, 134, 29);
+}
+
+.funcionarios ul {
+    display: inline-block;
+    padding: 50px;
+    border-radius: 5%;
+    background-color: rgba(112, 219, 121, 0.5);
+}
+
+.funcionarios li {
+    padding: 10px 60px;
+    font-size: 25px;
+    border: 1px solid rgb(137, 170, 94);
+    list-style: none;
+}
