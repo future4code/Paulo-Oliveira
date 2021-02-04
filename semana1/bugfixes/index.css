@@ -68,7 +68,7 @@ div>p:first-child {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
-    padding: 150px;
+    padding: 150px 550px;
 }
 
 #container-de-descricao>ol {
@@ -77,12 +77,17 @@ div>p:first-child {
 
 #container-para-comprar {
     background-color: #e7eb90;
+    padding: 100px;
 }
 
 #container-para-comprar>p {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
+}
+
+#container-para-comprar button {
+    margin: 150px;
 }
 
 
@@ -145,4 +150,9 @@ td button:hover {
 
 #back-button:hover {
     background-color: #635a3d
+}
+
+.button-back {
+    padding: 150px;
+    text-align: center;
 }
