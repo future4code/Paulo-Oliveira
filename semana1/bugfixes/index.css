@@ -120,6 +120,11 @@ td button:hover {
     height: 100px;
 }
 
+.container-do-search input {
+    border: none;
+    border-bottom: 2px solid black;
+}
+
 .container-do-search img {
     width: 22px;
 }
