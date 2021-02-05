@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #D7D7D9;
+    font-family: 'Roboto';
+    margin: 0 auto;
+    width: 1200px;
+    float: none;
+    text-align: center;
+}
+
+header {
+    border-radius: 0 0 20px 20px;
+    background-color: #c1c1c9;
+    padding: 30px 0;
+}
+
+header img {
+    overflow: hidden;
+    float: left;
+    width: 70px;
+    margin: 0 130px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #184059;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+header nav ul {
+    overflow: hidden;
+    list-style: none;
+}
+
+header nav ul li {
+    float: right;
+    margin: 5px 5px;
+    padding: 20px;
+}
+
+
+header nav a:hover {
+    color: #5D8AA6;
+}
+
+/* Principal */
+
+.principal {
+    margin: 100px;
+}
+
+.principal h1 {
+    font-size: 70px;
+    color: #184059;
+}
+
+.principal h3 {
+    font-size: 30px;
+    color: #5D8AA6;
+}
+
+.principal p {
+    padding: 100px 20px;
+}
+
+/* Formação */
+
+.estudos {
+    border-radius: 20px;
+    background-color: #5D8AA6;
+    padding: 100px;
+}
+
+.estudos h1 {
+    font-size: 35px;
+    margin: 50px;
+}
+
+/* Galeria */
+
+.galeria h1 {
+    font-size: 35px;
+    margin: 50px;
+}
+
+.galeria div {
+    padding: 100px 50px;
+    margin: 50px 10px;
+    width: 28%;
+    display: inline-block;
+    border-radius: 20px;
+    border: 1px solid #c1c1c9;
+}
+
+/* Habilidades */
+
+.habilidades {
+    padding: 100px 0;
+    border-radius: 20px;
+    background-color: #5D8AA6;
+}
+
+.habilidades h1 {
+    font-size: 35px;
+}
+
+.habilidades div {
+        padding: 100px 50px;
+        margin: 50px 0;
+        width: 33%;
+        display: inline-block;
+}
+
+/* contato */
+
+.contato {
+    padding: 80px;
+}
+
+.contato h1 {
+    font-size: 35px;
+}
+
+.contato form {
+    margin: 30px;
+}
+
+.contato form label, .contato form input {
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    width: 50%;
+}
+
+.contato form button {
+    width: 300px;
+    padding: 5px;
+    margin: 10px;
+}
+
+/* Redes Sociais */
+
+.redes-sociais {
+    padding: 100px 0;
+    border-radius: 20px;
+    background-color: #5D8AA6;
+}
+
+.redes-sociais h1 {
+    padding: 40px;
+    font-size: 35px;
+}
+
+.redes-sociais table {
+    margin: 0 auto;
+}
+
+.redes-sociais table img {
+    width: 70px;
+    margin: 40px;
+}
+
+.redes-sociais table img:hover {
+    border: 1px solid transparent;
+}
+
+/* Footer */
+
+footer {
+    border-radius: 20px 20px 0 0;
+    background-color: #8d8d94;
+    padding: 20px;
+    margin-top: 30px;
+}
