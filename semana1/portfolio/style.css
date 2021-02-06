@@ -32,7 +32,8 @@ header nav ul li a {
     text-decoration: none;
     color: #184059;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 300;
 }
 
 header nav ul {
@@ -43,7 +44,7 @@ header nav ul {
 header nav ul li {
     float: right;
     margin: 5px 5px;
-    padding: 20px;
+    padding: 20px 5px;
 }
 
 
@@ -60,15 +61,52 @@ header nav a:hover {
 .principal h1 {
     font-size: 70px;
     color: #184059;
+    font-weight: 300;
 }
 
 .principal h3 {
     font-size: 30px;
     color: #5D8AA6;
+    font-weight: 300;
 }
 
 .principal p {
     padding: 100px 20px;
+    font-size: 20px;
+    color: #5D8AA6;
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* Sobre Mim */
+
+.sobre-mim {
+    background-color: #fff;
+    margin: 50px;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.sobre-mim h1 {
+    font-size: 45px;
+    color: #184059;
+    font-weight: 300;
+}
+
+.sobre-mim p {
+    padding: 18px;
+    font-size: 20px;
+    margin: 30px auto;
+    width: 75%;
+    color: #5D8AA6;
+    font-weight: 300;
+}
+
+.sobre-mim img {
+    border-radius: 50%;
+    border: 5px solid #5D8AA6;
+    margin-bottom: 32px;
+    height: 250px;
 }
 
 /* Formação */
@@ -76,47 +114,114 @@ header nav a:hover {
 .estudos {
     border-radius: 20px;
     background-color: #5D8AA6;
-    padding: 100px;
+    margin: 50px;
+    padding: 20px;
+    padding-bottom: 100px;
 }
 
 .estudos h1 {
-    font-size: 35px;
+    font-size: 45px;
     margin: 50px;
+    color: #D7D7D9;
+    font-weight: 300;
+}
+
+.estudos div h3 {
+    font-size: 25px;
+    color: #184059;
+    font-weight: 300;
+}
+
+.estudos div p {
+    padding: 20px;
+    font-size: 20px;
+    color: #D7D7D9;
+    font-weight: 300;
 }
 
 /* Galeria */
 
+.galeria {
+    padding-bottom: 100px;
+    padding-top: 30px;
+}
+
 .galeria h1 {
-    font-size: 35px;
-    margin: 50px;
+    font-size: 45px;
+    margin: 30px;
+    color: #184059;
+    font-weight: 300;
+}
+
+.galeria p {
+    font-size: 25px;
+    color: #5D8AA6;
+    margin-bottom: 40px;
+    font-weight: 300;
 }
 
 .galeria div {
-    padding: 100px 50px;
-    margin: 50px 10px;
+    padding: 50px 0;
     width: 28%;
     display: inline-block;
-    border-radius: 20px;
+}
+
+.galeria div:hover {
+    background-color: rgb(184, 181, 181, 0.5);
+}
+
+.galeria img {
     border: 1px solid #c1c1c9;
+    border-radius: 20px;
+    width: 320px;
+}
+
+.galeria h3 {
+    margin-top: 20px;
+    font-size: 30px;
+    color: #5D8AA6;
+    font-weight: 300;
 }
 
 /* Habilidades */
 
 .habilidades {
-    padding: 100px 0;
+    padding: 80px 0;
     border-radius: 20px;
     background-color: #5D8AA6;
 }
 
 .habilidades h1 {
-    font-size: 35px;
+    margin-top: 30px;
+    font-size: 45px;
+    color: #D7D7D9;
+    font-weight: 300;
+}
+
+.habilidades .habilidades-h1 {
+    margin-top: 100px;
+    font-weight: 300;
 }
 
 .habilidades div {
-        padding: 100px 50px;
-        margin: 50px 0;
-        width: 33%;
-        display: inline-block;
+    padding: 30px 50px;
+    /* margin: 20px 0; */
+    width: 500px;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.habilidades h3 {
+    margin: 20px;
+    font-size: 30px;
+    color: #184059;
+    font-weight: 300;
+}
+
+.habilidades p {
+    font-size: 20px;
+    color: #D7D7D9;
+    font-weight: 300;
 }
 
 /* contato */
@@ -126,14 +231,23 @@ header nav a:hover {
 }
 
 .contato h1 {
-    font-size: 35px;
+    font-size: 45px;
+    color: #184059;
+    font-weight: 300;
 }
 
 .contato form {
     margin: 30px;
 }
 
-.contato form label, .contato form input {
+.contato form label {
+    font-size: 25px;
+    font-weight: bold;
+    color: #5D8AA6;
+    font-weight: 300;
+}
+
+.contato form label, .contato form input, .contato form textarea {
     display: inline-block;
     padding: 5px;
     margin: 5px;
@@ -144,12 +258,18 @@ header nav a:hover {
     width: 300px;
     padding: 5px;
     margin: 10px;
+    color: #184059;
+    font-weight: 300;
+}
+
+.contato form button:hover {
+    background-color: #c1c1c9;
 }
 
 /* Redes Sociais */
 
 .redes-sociais {
-    padding: 100px 0;
+    padding: 50px 0;
     border-radius: 20px;
     background-color: #5D8AA6;
 }
@@ -157,6 +277,8 @@ header nav a:hover {
 .redes-sociais h1 {
     padding: 40px;
     font-size: 35px;
+    color: #D7D7D9;
+    font-weight: 300;
 }
 
 .redes-sociais table {
@@ -172,6 +294,54 @@ header nav a:hover {
     border: 1px solid transparent;
 }
 
+/* Páginas da Galeria */
+
+.projetos h1 {
+    font-size: 45px;
+    color: #184059;
+    font-weight: 300;
+}
+
+.projetos img {
+    width: 80%;
+    border: 1px solid #c1c1c9;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.projetos-descricao {
+    width: 50%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.projetos-descricao p {
+    font-size: 25px;
+    font-weight: bold;
+    color: #5D8AA6;
+    font-weight: 300;
+}
+
+.projetos-descricao h3 {
+    font-size: 30px;
+    margin-top: 60px;
+    color: #184059;
+    font-weight: 300;
+}
+
+.projetos-descricao div img {
+    width: 80px;
+    /* border: none; */
+}
+
+.projetos-descricao div img:hover {
+    background-color: rgb(78, 73, 73, 0.1);
+}
+
+.projetos-descricao div img:nth-of-type(3) {
+    padding: 8px;
+}
+
 /* Footer */
 
 footer {
@@ -179,4 +349,9 @@ footer {
     background-color: #8d8d94;
     padding: 20px;
     margin-top: 30px;
+}
+
+footer p {
+    color: #fff;
+    font-weight: 300;
 }
