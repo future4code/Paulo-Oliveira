@@ -1,0 +1,61 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    color: white;
+}
+
+#main-container {
+    height: 100vh;
+}
+
+#top-container {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+
+}
+
+.green-background {
+    background-color: green;
+    width: 500px;
+}
+
+.yellow-background {
+    background-color: yellow;
+    width: 900px
+}
+
+.pink-background {
+    background-color: fuchsia;
+    height: 300px;
+}
+
+#middle-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blue-background {
+    background-color: blue;
+    width: 750px;
+    height: 260px;
+}
+
+.red-background {
+    background-color: red;
+    height: 130px;
+    width: 300px;
+}
+
+.lightgreen-background {
+    background-color: lightgreen;
+    height: 130px;
+}
+
+.purple-background {
+    background-color: purple;
+    height: 50px;
+}
