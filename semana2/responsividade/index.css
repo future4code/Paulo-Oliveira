@@ -1,0 +1,89 @@
+body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#first-block {
+    background-color: red;
+}
+
+.blue-block {
+    background-color: blue;
+}
+
+.yellow-block {
+    background-color: yellow;
+}
+
+.green-block {
+    background-color: green;
+}
+
+.black-block {
+    background-color: black;
+    color: white;
+}
+
+.white-block {
+    background-color: white;
+}
+
+#main-container {
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#main-container > .coluna > div {
+    margin: 20px 10px 0 10px;
+    border: 1px solid black;
+}
+
+#main-container > :nth-child(1) { 
+    height: 100px;
+    flex-grow: 1;
+}
+
+#main-container > :nth-child(2), #main-container > :nth-child(3) { 
+    display: flex;
+    flex-grow: 1;
+    flex-flow: row wrap;
+}
+
+#main-container > :nth-child(2) > div, #main-container > :nth-child(3) > div { 
+    height: 200px;
+    width: 18rem;
+    display: flex;
+    flex-grow: 2;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container > :nth-child(4) { 
+    display: flex;
+    flex-grow: 2;
+    flex-flow: row wrap;
+}
+
+#main-container > :nth-child(4) > div { 
+    height: 400px;
+    width: 18rem;
+    flex-grow: 1;
+}
+
+#main-container > :nth-child(5) { 
+    padding-bottom: 120px;
+    display: flex;
+    flex-grow: 1;
+    flex-flow: row wrap;
+}
+
+#main-container > :nth-child(5) > div { 
+    height: 200px;
+    width: 18rem;
+    flex-grow: 1;
+}
