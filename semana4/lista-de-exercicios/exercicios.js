@@ -112,6 +112,39 @@ function checaTriangulo(a, b, c) {
 
 function comparaDoisNumeros(num1, num2) {
    // implemente sua lógica aqui
+   const novoObjeto = {
+      maiorNumero: '',
+      maiorDivisivelporMenor: '',
+      diferenca: ''
+   }
+
+   if (num1 > num2) {
+      novoObjeto.maiorNumero = num1
+      novoObjeto.diferenca = num1 - num2
+
+      if (num1 % num2 === 0) {
+         novoObjeto.maiorDivisivelporMenor = true
+
+      } else {
+         novoObjeto.maiorDivisivelporMenor = false
+
+      }
+
+   } else {
+      novoObjeto.maiorNumero = num2
+      novoObjeto.diferenca = num2 - num1
+
+      if (num2 % num1 === 0) {
+         novoObjeto.maiorDivisivelporMenor = true
+
+      } else {
+         novoObjeto.maiorDivisivelporMenor = false
+         
+      }
+
+   }
+   return novoObjeto
+
 }
 
 // Exercício 10
