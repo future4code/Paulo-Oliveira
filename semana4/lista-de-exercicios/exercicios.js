@@ -75,6 +75,21 @@ function retornaExpressoesBooleanas() {
 
 function retornaNNumerosPares(n) {
    // implemente sua lógica aqui
+   let numPares = 0
+   let num = 0
+   const novoArray = []
+
+   while (numPares < n) {
+      if (num % 2 === 0) {
+         novoArray.push(num)
+         numPares++
+
+      }
+      num++
+
+   }
+   return novoArray
+
 }
 
 // Exercício 8
