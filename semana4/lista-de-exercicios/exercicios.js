@@ -298,6 +298,12 @@ function menoresDe18(arrayDePessoas) {
 
 function multiplicaArrayPor2(array) {
    // implemente sua lógica aqui
+   const novoArray = array.map(valor => {
+      return valor * 2
+
+   })
+   return novoArray
+
 }
 
 // Exercício 17, letra B
