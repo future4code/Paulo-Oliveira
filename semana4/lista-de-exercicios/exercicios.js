@@ -4,12 +4,23 @@ function inverteArray(array) {
   // implemente sua lógica aqui
   array.reverse()
   return array
+
 }
 
 //Exercício 2
 
 function retornaNumerosParesElevadosADois (array) {
    // implemente sua lógica aqui
+   let novoArray = []
+
+   for (numero of array) {
+      if (numero % 2 === 0) {
+         novoArray.push(Math.pow(numero, 2))
+         
+      }
+   }
+   return novoArray
+
 }
 
 //Exercício 3
