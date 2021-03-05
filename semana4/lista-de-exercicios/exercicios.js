@@ -449,4 +449,16 @@ const contas = [
 
 function atualizaSaldo() {
   // implemente sua lógica aqui
+   contas.forEach((conta) => {
+      let totalCompras = 0
+
+      conta.compras.forEach((valor) => {
+         totalCompras += valor
+
+      })
+      conta.saldoTotal -= totalCompras
+
+   })
+   return contas
+
 }
