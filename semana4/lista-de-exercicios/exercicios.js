@@ -205,6 +205,14 @@ function criaRetangulo(lado1, lado2) {
 
 function anonimizaPessoa(pessoa) {
    // implemente sua lógica aqui
+   const objeto = {
+      nome: 'ANÔNIMO',
+      idade: 25,
+      email: 'astrodev@future4.com.br',
+      endereco: 'Rua do Futuro, 4'
+   }
+   return objeto
+
 }
 
 // Exercício 16
