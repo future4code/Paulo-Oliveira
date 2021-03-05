@@ -310,6 +310,12 @@ function multiplicaArrayPor2(array) {
 
 function multiplicaArrayPor2S(array) {
   // implemente sua lógica aqui
+   const novoArray = array.map(valor => {
+   return String(valor * 2)
+
+   })
+   return novoArray
+
 }
 
 // Exercício 17, letra C
