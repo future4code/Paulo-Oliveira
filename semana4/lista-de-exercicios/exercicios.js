@@ -2,6 +2,8 @@
 
 function inverteArray(array) {
   // implemente sua lógica aqui
+  array.reverse()
+  return array
 }
 
 //Exercício 2
