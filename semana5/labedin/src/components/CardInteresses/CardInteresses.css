@@ -1,0 +1,25 @@
+.interestscard-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    height: 260px;
+}
+
+.interestscard-container .interesses-img {
+    width: 60px;
+    margin-right: 10px;
+    border: 1px solid rgb(230, 226, 226);
+}
+
+.interestscard-container .interesses-bloco {
+    display: flex;
+    flex-direction:row;
+    justify-items: flex-start;
+    margin: 30px 10px;
+}
+
+.interestscard-container p {
+    font-size: 14px;
+}
