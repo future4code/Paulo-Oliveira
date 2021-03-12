@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Post from './components/Post/Post';
 
 import profileIcon from './img/profile.png'
@@ -7,6 +6,13 @@ import labenuIcon from './img/labenu.png'
 import astrobotIcon from './img/astrobot.png'
 
 import styled from 'styled-components'
+
+const AppContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`
 
 const InputPost = styled.input`
   margin: 5px;
@@ -52,6 +58,10 @@ class App extends React.Component {
     const novosPosts = [...this.state.post, novoPost]
 
     this.setState({ post: novosPosts })
+
+    this.setState({ valorInputNome: '' })
+    this.setState({ valorInputUsuario: '' })
+    this.setState({ valorInputPost:'' })
   }
 
   onChangeInputNome = (event) => {
@@ -78,29 +88,29 @@ class App extends React.Component {
     })
 
     return (
-      <div className={'app-container'}>
+      <AppContainer>
         <InputPost 
-          value={this.state.valorInputNome}
+          defaultValue={this.state.valorInputNome}
           onChange={this.onChangeInputNome}
           placeholder={'Nome de Usuário'}
         />
 
         <InputPost
-          value={this.valorInputUsuario}
-          onChange={this.valorInputUsuario}
+          defaultValue={this.state.valorInputUsuario}
+          onChange={this.onChangeInputUsuario}
           placeholder={'Foto de Perfil'}
         />
 
         <InputPost
-          value={this.valorInputPost}
-          onChange={this.valorInputPost}
+          defaultValue={this.state.valorInputPost}
+          onChange={this.onChangeInputPost}
           placeholder={'Foto que deseja postar'}
         />
 
         <ButtonAdicionar onClick={this.adicionarPost}>Postar</ButtonAdicionar>
 
         {listaPost}
-      </div>
+      </AppContainer>
     );
   }
 }
