@@ -6,6 +6,26 @@ import Etapa2 from './components/Etapa2.js'
 import Etapa3 from './components/Etapa3.js'
 import Final from './components/Final.js'
 
+const ContainerForm = styled.div`
+  text-align: center;
+  font-size: 1.25rem;
+`
+
+const ButtonForm = styled.button`
+  width: 185px;
+  height: 30px;
+  background-color: #025955;
+  color: #fde8cd;
+  border: 1px solid #433520;
+  margin: 10px;
+  border-radius: 8px;
+  &:hover{
+    background-color: #fde8cd;
+    color: #00917c;
+    border: 1px solid #00917c;
+  }
+`
+
 class App extends React.Component {
 
   state = {
@@ -33,14 +53,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <ContainerForm>
         {this.renderizaEtapa()}
         <br />
         {this.state.etapa !== 4 && (
-          <button on onClick={this.irParaProximaEtapa}>Próxima etapa</button>
+          <ButtonForm on onClick={this.irParaProximaEtapa}>Próxima etapa</ButtonForm>
           )}
         
-      </div>
+      </ContainerForm>
     );
   }
 }
