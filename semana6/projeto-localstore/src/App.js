@@ -23,6 +23,7 @@ const AppContainer = styled.div`
     border-radius: 5px;
   }
   button{
+    cursor: pointer;
     border: none;
     border-radius: 5px;
     font-weight: bold;
