@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react' 
 import './Post.css'
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
@@ -13,6 +13,39 @@ import markBlack from '../../img/mark-black.png'
 import {IconeMarcador} from '../IconeMarcador/IconeMarcador'
 import shareIcon from '../../img/share.png'
 import {SecaoCompartilhar} from '../SecaoCompartilhar/SecaoCompartilhar'
+
+import styled from 'styled-components'
+
+const PostContainer = styled.div`
+  border: 1px solid gray;
+  width: 300px;
+  margin-bottom: 10px;
+`
+const PostHeader = styled.div`
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+`
+const PostFooter = styled.div`
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: space-between;
+`
+
+const UserPhoto = styled.img`
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+`
+
+const PostPhoto = styled.img`
+  width: 100%;
+`
+
 
 class Post extends React.Component {
   state = {
@@ -115,15 +148,15 @@ class Post extends React.Component {
       )
     }
 
-    return <div className={'post-container'}>
-      <div className={'post-header'}>
-        <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+    return <PostContainer>
+      <PostHeader>
+        <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
         <p>{this.props.nomeUsuario}</p>
-      </div>
+      </PostHeader>
 
-      <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'}/>
+      <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
 
-      <div className={'post-footer'}>
+      <PostFooter>
       
         <IconeComContador
           icone={iconeCurtida}
@@ -147,10 +180,10 @@ class Post extends React.Component {
           onClickIcone={this.onClickMarcado}
         />
         
-      </div>
+      </PostFooter>
       {componenteComentario}
       {componenteCompartilhar}
-    </div>
+    </PostContainer>
   }
 }
 

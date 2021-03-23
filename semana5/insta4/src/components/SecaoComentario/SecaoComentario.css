@@ -8,3 +8,9 @@
     width: 100%;
     margin-right: 5px;
 }
+
+.add-coment {
+    margin-left: 10px;
+    font-style: italic;
+    font-size: 18px;
+}
