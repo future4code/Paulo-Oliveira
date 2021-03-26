@@ -3,31 +3,86 @@ import styled from 'styled-components'
 import axios from 'axios'
 
 const CreateContainer = styled.div`
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    margin: 40px auto;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+`
+
+const DivButton = styled.div`
+    padding: 25px;
+`
+
+const DivFields = styled.div`
+    background-color: #00af91;
+    box-shadow: 3px 3px grey;
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
     width: 400px;
-    height: 420px;
+    height: 350px;
+    padding: 20px;
     text-align: center;
 
     h2 {
-        margin-top: 60px;
-    }
-
-    label {
-        margin-top: 40px;
+        margin: 30px;
     }
 
     input {
-        width: 200px;
-        margin: 10px auto;
+        color: #00af91;
+        font-weight: bold;
+        width: 300px;
+        height: 30px;
+        font-size: 1em;
+        margin: 15px auto;
     }
 
-    button {
-        width: 80px;
-        margin: 0 auto;
-        margin-top: 40px;
+    input::placeholder{
+        color: #00af9190;
+        font-weight: bold;
+    }
+`
+
+const ChangeButton = styled.button`
+    background-color: #ffcc29;
+    border: none;
+    border-bottom: 2px solid grey;
+    border-right: 2px solid grey;
+    color: #00af91;
+    font-weight: bold;
+    width: 130px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 1em;
+
+    &:hover {
+        background-color: #f58634;
+        color: #fff;
+        border-bottom: 2px solid #fff;
+        border-right: 2px solid #fff;
+    }
+`
+
+const CreateButton = styled.button`
+    background-color: #ffcc29;
+    margin-top: 20px;
+    border: none;
+    border-bottom: 2px solid grey;
+    border-right: 2px solid grey;
+    color: #00af91;
+    font-weight: bold;
+    width: 50%;
+    padding: 5px;
+    align-self: center;
+    cursor: pointer;
+    font-size: 0.80em;
+
+    &:hover {
+        background-color: #f58634;
+        color: #fff;
+        border-bottom: 2px solid #fff;
+        border-right: 2px solid #fff;
     }
 `
 
@@ -70,16 +125,21 @@ export default class CreatePlaylist extends React.Component {
 
         return(
             <CreateContainer>
-                <h2>CRIAR PLAYLIST</h2>
-                <label>NOME DA PLAYLIST</label>
-                <input
-                    placeholder={'Nova Playlist'}
-                    value={this.state.inputPlaylist}
-                    onChange={this.handleInputPlaylist}
-                />
-                <button onClick={this.addPlaylist}>ENVIAR</button>
-                <button onClick={this.props.changepage}>VER PLAYLIST</button>
-            </CreateContainer>
+                <DivButton>
+                    <ChangeButton onClick={this.props.changepage}>VER PLAYLIST</ChangeButton>
+                </DivButton>
+                <DivFields>
+                    <h2>CRIAR PLAYLIST</h2>
+                    <label>NOME DA PLAYLIST</label>
+                    <input
+                        placeholder={'Nova Playlist'}
+                        value={this.state.inputPlaylist}
+                        onChange={this.handleInputPlaylist}
+                    />
+                    <CreateButton onClick={this.addPlaylist}>ENVIAR</CreateButton>
+                </DivFields>
+                </CreateContainer>
+            
         )
     }
 }

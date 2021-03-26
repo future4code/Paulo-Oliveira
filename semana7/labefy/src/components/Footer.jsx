@@ -4,10 +4,12 @@ import axios from 'axios'
 
 const FooterContainer = styled.div`
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
-    background-color: lightgrey;
-    height: 80px;
+    background-color: #bfdcae;
+    height: 60px;
+    margin-top: auto;
 `
 
 export default class Footer extends React.Component {

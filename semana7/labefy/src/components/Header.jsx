@@ -9,7 +9,7 @@ const HeaderContainer = styled.div`
     align-items: center;
     width: 100%;
     height: 20%;
-    border-bottom: 1px solid black;
+    background-color: #bfdcae;
 
     button {
         height: 30px;
@@ -26,7 +26,6 @@ export default class Header extends React.Component {
         return(
             <HeaderContainer>
                 <h1>Header</h1>
-                <button onClick={this.props.changepage}>VER PLAYLIST</button>
             </HeaderContainer>
         )
     }

@@ -3,13 +3,61 @@ import styled from 'styled-components'
 import axios from 'axios'
 
 const ListContainer = styled.div`
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    margin: 40px auto;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    font-size: 1.25em;
+`
+
+const DivButton = styled.div`
+    padding: 25px;
+`
+
+const ChangeButton = styled.button`
+    background-color: #ffcc29;
+    border: none;
+    border-bottom: 2px solid grey;
+    border-right: 2px solid grey;
+    color: #00af91;
+    font-weight: bold;
+    width: 130px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 0.80em;
+`
+
+const DivList = styled.div`
+    background-color: #00af91;
+    box-shadow: 3px 3px grey;
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
     width: 400px;
-    height: 350px;
-    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+`
+
+const ListUl = styled.ul`
+    margin: 0;
+    padding: 0;
+`
+
+const ListLi = styled.li`
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    border-bottom: 1px solid grey;
+    padding-top: 15px;
+    color: #007965;
+    font-weight: bold;
+`
+
+const DeleteButton = styled.button`
+    background-color: red;
 `
 
 export default class AllPlaylists extends React.Component {
@@ -64,22 +112,24 @@ export default class AllPlaylists extends React.Component {
 
     render() {
         const listPlaylist = this.state.playlists.map((playlist) => (
-            <li key={playlist.id}>
+            <ListLi key={playlist.id}>
             {playlist.name}
-            <button onClick={() => this.deletePlaylist(playlist)}>X</button>
-            </li>
+            <DeleteButton onClick={() => this.deletePlaylist(playlist)}>X</DeleteButton>
+            </ListLi>
         ))
 
         return(
             <ListContainer>
-                <button onClick={this.props.changepage}>VER PLAYLIST</button>
-                <div>
+                <DivButton>
+                <ChangeButton onClick={this.props.changepage}>ADICIONAR PLAYLIST</ChangeButton>
+                </DivButton>
+                <DivList>
                     {this.state.playlists.length > 0 ? (
-                        <ul>{listPlaylist}</ul>
+                        <ListUl>{listPlaylist}</ListUl>
                     ) : (
-                        <li>Carregando...</li>
+                        <ListLi>Carregando...</ListLi>
                     )}
-                </div>
+                </DivList>
             </ListContainer>
         )
     }
