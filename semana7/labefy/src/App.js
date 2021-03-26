@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import styled from 'styled-components'
+import axios from 'axios'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from './components/Header'
+import CreatePlaylist from './components/CreatePlaylist'
+import AllPlaylists from './components/AllPlaylists'
+import Footer from './components/Footer'
+
+export default class App extends React.Component {
+  state = {
+    playlistCreated: false
+  }
+
+  createPage = () => {
+    this.setState({ playlistCreated: true })
+  }
+
+  listPage = () => {
+    this.setState({ playlistCreated: false })
+  }
+
+  render() {
+    const renderWindow = () => {
+      if (this.state.playlistCreated) {
+        return <AllPlaylists changepage={this.listPage} />
+      } else {
+        return <CreatePlaylist changepage={this.createPage} />
+      }
+    }
+
+    return (
+      <div>
+        <Header />
+        {renderWindow()}
+        <Footer />
+      </div>
+    )
+  }
 }
-
-export default App;
