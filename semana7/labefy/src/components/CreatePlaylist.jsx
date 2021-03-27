@@ -15,7 +15,7 @@ const DivButton = styled.div`
 `
 
 const DivFields = styled.div`
-    background-color: #00af91;
+    backdrop-filter: blur(6px);
     box-shadow: 3px 3px grey;
     border: 1px solid grey;
     display: flex;
@@ -24,9 +24,15 @@ const DivFields = styled.div`
     height: 350px;
     padding: 20px;
     text-align: center;
+    color: #fff;
 
     h2 {
         margin: 30px;
+        text-shadow: 2px 2px black;
+    }
+
+    label {
+        text-shadow: 2px 2px black;
     }
 
     input {
@@ -39,17 +45,15 @@ const DivFields = styled.div`
     }
 
     input::placeholder{
-        color: #00af9190;
         font-weight: bold;
     }
 `
 
 const ChangeButton = styled.button`
-    background-color: #ffcc29;
+    background-color: #8be3e1;
     border: none;
     border-bottom: 2px solid grey;
     border-right: 2px solid grey;
-    color: #00af91;
     font-weight: bold;
     width: 130px;
     padding: 5px;
@@ -57,20 +61,19 @@ const ChangeButton = styled.button`
     font-size: 1em;
 
     &:hover {
-        background-color: #f58634;
-        color: #fff;
-        border-bottom: 2px solid #fff;
-        border-right: 2px solid #fff;
+        background-color: #f9f7f7;
+        color: #112d4e;
+        border-bottom: 2px solid #8be3e1;
+        border-right: 2px solid #8be3e1;
     }
 `
 
 const CreateButton = styled.button`
-    background-color: #ffcc29;
+    background-color: #8be3e1;
     margin-top: 20px;
     border: none;
     border-bottom: 2px solid grey;
     border-right: 2px solid grey;
-    color: #00af91;
     font-weight: bold;
     width: 50%;
     padding: 5px;
@@ -79,10 +82,10 @@ const CreateButton = styled.button`
     font-size: 0.80em;
 
     &:hover {
-        background-color: #f58634;
-        color: #fff;
-        border-bottom: 2px solid #fff;
-        border-right: 2px solid #fff;
+        background-color: #f9f7f7;
+        color: #112d4e;
+        border-bottom: 2px solid #8be3e1;
+        border-right: 2px solid #8be3e1;
     }
 `
 

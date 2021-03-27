@@ -5,7 +5,6 @@ import axios from 'axios'
 import Header from './components/Header'
 import CreatePlaylist from './components/CreatePlaylist'
 import AllPlaylists from './components/AllPlaylists'
-import Footer from './components/Footer'
 
 export default class App extends React.Component {
   state = {
@@ -33,7 +32,6 @@ export default class App extends React.Component {
       <div>
         <Header />
         {renderWindow()}
-        <Footer />
       </div>
     )
   }

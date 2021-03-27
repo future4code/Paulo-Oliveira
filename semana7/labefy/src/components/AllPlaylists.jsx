@@ -16,20 +16,26 @@ const DivButton = styled.div`
 `
 
 const ChangeButton = styled.button`
-    background-color: #ffcc29;
+    background-color: #8be3e1;
     border: none;
     border-bottom: 2px solid grey;
     border-right: 2px solid grey;
-    color: #00af91;
     font-weight: bold;
-    width: 130px;
+    width: 200px;
     padding: 5px;
     cursor: pointer;
     font-size: 0.80em;
+
+    &:hover {
+        background-color: #f9f7f7;
+        color: #112d4e;
+        border-bottom: 2px solid #8be3e1;
+        border-right: 2px solid #8be3e1;
+    }
 `
 
 const DivList = styled.div`
-    background-color: #00af91;
+    backdrop-filter: blur(6px);
     box-shadow: 3px 3px grey;
     border: 1px solid grey;
     display: flex;
@@ -52,12 +58,20 @@ const ListLi = styled.li`
     width: 400px;
     border-bottom: 1px solid grey;
     padding-top: 15px;
-    color: #007965;
+    color: #fff;
+    text-shadow: 2px 2px black;
     font-weight: bold;
 `
 
 const DeleteButton = styled.button`
     background-color: red;
+    cursor: pointer;
+    border-radius: 50%;
+    backdrop-filter: blur(6px);
+
+    :hover {
+        background-color: #be0000;
+    }
 `
 
 export default class AllPlaylists extends React.Component {
