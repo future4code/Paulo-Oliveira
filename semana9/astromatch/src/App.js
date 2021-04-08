@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import Container from './pages/Container'
+import Home from './pages/Home'
+import Matches from './pages/Matches'
 
 const AppDiv = styled.div`
   display: flex;
@@ -11,9 +12,20 @@ const AppDiv = styled.div`
 `
 
 function App() {
+  const [pages, setpages] = useState(true)
+
+  const changePages = () => {
+    setpages(!pages)
+  }
+
   return (
     <AppDiv>
-      <Container />
+      {pages ?(
+        <Home changePages={changePages}/>
+      ) : (
+        <Matches changePages={changePages}/>
+      )
+    }
     </AppDiv>
   );
 }
