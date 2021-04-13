@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { useHistory } from 'react-router-dom'
-import { goToLastPage } from '../routes/coordinator'
+import { goToLastPage } from '../../routes/coordinator'
 
 const ApplicationFormPage = () => {
     const history = useHistory()

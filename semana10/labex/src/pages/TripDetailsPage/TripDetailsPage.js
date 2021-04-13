@@ -1,17 +1,16 @@
 import React, { Fragment } from 'react'
 import { useHistory } from 'react-router-dom'
-import { goToLastPage } from '../routes/coordinator'
+import { goToLastPage } from '../../routes/coordinator'
 
-const CreateTripPage = () => {
+const TripDetailsPage = () => {
     const history = useHistory()
 
     return(
         <Fragment>
-        <p>Criar Viagem</p>
+        <p>Detalhes da Viagem</p>
         <button onClick={ () => goToLastPage(history) }>Voltar</button>
-        <button>Criar</button>
         </Fragment>
     )
 }
 
-export default CreateTripPage
+export default TripDetailsPage

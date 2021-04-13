@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { useHistory } from 'react-router-dom'
-import { goToCreateTripPage, goToLastPage, goToLoginPage, goToTripDetailsPage } from '../routes/coordinator'
+import { goToCreateTripPage, goToLastPage, goToLoginPage, goToTripDetailsPage } from '../../routes/coordinator'
 
 const AdminHomePage = () => {
     const history = useHistory()

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { useHistory } from 'react-router-dom'
-import { goToApplicationFormPage, goToLastPage } from '../routes/coordinator'
+import { goToApplicationFormPage, goToLastPage } from '../../routes/coordinator'
 
 const ListTripsPage = () => {
     const history = useHistory()
