@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import React, { useState } from 'react'
+import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import { goToAdminHomePage, goToLastPage } from '../../routes/coordinator'
 
@@ -7,7 +8,35 @@ import { Container, StyleContainer, DivInput, DivButton } from './styles'
 import Logo from '../../assets/logo.png'
 
 const LoginPage = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const history = useHistory()
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value)
+    }
+
+    const handlePassword = (e) => {
+        setPassword(e.target.value)
+    }
+
+    const login = () => {
+        const body = {
+            email: email,
+            password: password
+        }
+
+        axios
+            .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/paulo-oliveira-cruz/login', body)
+            .then((res) => {
+                console.log(res.data)
+                window.localStorage.setItem('token', res.data.token)
+                history.push('/admin/trips/:id')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 
     return( 
         <Container>
@@ -15,16 +44,21 @@ const LoginPage = () => {
                 <img src={ Logo } />
                 <h1>Login</h1>
                 <DivInput>
-                    <input 
+                    <input
+                        value={ email }
+                        onChange={ handleEmail }
                         placeholder='E-mail'
                     />
-                    <input 
+                    <input
+                        type='password'
+                        value={ password }
+                        onChange={ handlePassword }
                         placeholder='Senha'
                     />
                 </DivInput>
                 <DivButton>
                     <button onClick={ () => goToLastPage(history) }>Voltar</button>
-                    <button onClick={ () => goToAdminHomePage(history) }>Entrar</button>
+                    <button onClick={ login }>Entrar</button>
                 </DivButton>
             </StyleContainer>
         </Container>
