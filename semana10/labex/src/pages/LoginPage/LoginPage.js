@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
-import { goToAdminHomePage, goToLastPage } from '../../routes/coordinator'
+import { goToHomePage } from '../../routes/coordinator'
 
 import { Container, StyleContainer, DivInput, DivButton } from './styles'
 
@@ -31,7 +31,7 @@ const LoginPage = () => {
             .then((res) => {
                 console.log(res.data)
                 window.localStorage.setItem('token', res.data.token)
-                history.push('/admin/trips/:id')
+                history.push('/admin/trips/list')
             })
             .catch((err) => {
                 console.log(err)
@@ -41,10 +41,11 @@ const LoginPage = () => {
     return( 
         <Container>
             <StyleContainer>
-                <img src={ Logo } />
+                <img src={ Logo } alt='logo' />
                 <h1>Login</h1>
                 <DivInput>
                     <input
+                        type='email'
                         value={ email }
                         onChange={ handleEmail }
                         placeholder='E-mail'
@@ -57,7 +58,7 @@ const LoginPage = () => {
                     />
                 </DivInput>
                 <DivButton>
-                    <button onClick={ () => goToLastPage(history) }>Voltar</button>
+                    <button onClick={ () => goToHomePage(history) }>Voltar</button>
                     <button onClick={ login }>Entrar</button>
                 </DivButton>
             </StyleContainer>

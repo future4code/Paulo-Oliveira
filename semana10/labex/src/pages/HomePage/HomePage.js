@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { goToListTripsPage, goToLoginPage } from '../../routes/coordinator'
 
@@ -12,7 +12,7 @@ const HomePage = () => {
     return( 
         <Container>
             <StyleContainer>
-            <img src={ Logo } />
+            <img src={ Logo } alt='logo' />
             <h1>Bem vindo</h1>
                 <div>
                     <button onClick={ () => goToListTripsPage(history) }>Ver Viagens</button>

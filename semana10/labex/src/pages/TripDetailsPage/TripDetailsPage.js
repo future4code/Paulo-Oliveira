@@ -10,10 +10,10 @@ const TripDetailsPage = () => {
     const history = useHistory()
 
     useEffect(() => {
-        geetTripDetail('rwXgyZFPWNYRo3KR2F9r')
+        getTripDetail('91QLz39ewiPyjTMG3ivW')
     }, [])
 
-    const geetTripDetail = (id) => {
+    const getTripDetail = (id) => {
         const token = window.localStorage.getItem('token')
 
         axios
