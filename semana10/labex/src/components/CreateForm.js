@@ -1,0 +1,116 @@
+import React, { useEffect } from 'react'
+import styled from 'styled-components'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom'
+
+import { useForm } from '../hooks/useForm'
+
+const initialForm = {
+    name: '',
+    planet: '',
+    date: '',
+    description: '',
+    durationInDays: ''
+}
+
+const Createform = () => {
+    const history = useHistory()
+    const [form, onChange, resetForm] = useForm(initialForm)
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        console.log(form)
+        resetForm()
+    }
+
+    useEffect(() => {
+        const token = window.localStorage.getItem('token')
+
+        if(token === null) {
+            history.push('/login')
+        }
+    },[history])
+
+    const createTrip = () => {
+        const token = window.localStorage.getItem('token')
+
+        const body = {
+            name: form.name,
+            planet: form.planet,
+            date: form.date,
+            description: form.description,
+            durationInDays: form.durationInDays
+        }
+
+        axios
+            .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/paulo-oliveira-cruz/trips', body, {
+                headers: {
+                    auth: token
+                }
+            })
+            .then((res) => {
+                console.log(res.data)
+                alert('Viagem criada!')
+                history.push('/admin/trips/list')
+            })
+            .catch((err) => {
+                alert(err)
+            })
+    }
+
+    return (
+        <form onSubmit={ handleClick }>
+            <input 
+                name='name'
+                placeholder='Nome'
+                onChange={ onChange }
+                value={ form.name }
+            />
+            <select
+                name='planet'
+                placeholder='Planeta'
+                onChange={ onChange }
+                value={ form.planet }
+                displayEmpty
+            >
+                <option disabled  value={ '' }>Escolha um planeta</option>
+                <option>Mercúrio</option>
+                <option>Vênus</option>
+                <option>Terra</option>
+                <option>Marte</option>
+                <option>Jupiter</option>
+                <option>Saturno</option>
+                <option>Urano</option>
+                <option>Netuno</option>
+                <option>Plutão</option>
+            </select>
+            <input 
+                type='date'
+                name='date'
+                placeholder='Data'
+                onChange={ onChange }
+                value={ form.date }
+            />
+            <input 
+                name='description'
+                placeholder='Descrição'
+                onChange={ onChange }
+                value={ form.description }
+            />
+            <input
+                type='number'
+                name='durationInDays'
+                placeholder='Duração'
+                onChange={ onChange }
+                value={ form.durationInDays }
+            />
+            <button
+                onClick={ createTrip }
+            >
+                Enviar
+            </button>
+        </form>
+    )
+}
+
+export default Createform

@@ -16,7 +16,7 @@ export const StyleContainer = styled.div`
     align-items: center;
     border: 1px solid black;
     width: 100vh;
-    height: 75vh;
+    height: 80vh;
     margin: 80px auto;
     background-color: #00000080;
     
@@ -33,7 +33,21 @@ export const StyleContainer = styled.div`
 export const DivInput = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin: 0 30%;
+
+    button {
+        height: 50px;
+        width: 150px;
+        margin: 30px 31.5%;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid black;
+        cursor: pointer;
+
+        :hover {
+            background-color: grey;
+        } 
+    }
 
     input {
         width: 400px;
@@ -51,7 +65,7 @@ export const DivButton = styled.div`
     margin-top: 20px;
 
     button {
-        margin: 30px;
+        
         height: 50px;
         width: 150px;
         outline: none;

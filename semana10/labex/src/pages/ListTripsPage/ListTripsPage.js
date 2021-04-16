@@ -1,9 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
+
+import {useProtectedPage} from '../../hooks/useProtectedPage'
 import { goToApplicationFormPage, goToLastPage } from '../../routes/coordinator'
 
 const ListTripsPage = () => {
+    useProtectedPage()
     const history = useHistory()
     const [trips, setTrips] = useState([])
 
@@ -34,8 +37,8 @@ const ListTripsPage = () => {
                     <div>
                         <p><b>Planeta:</b> {trip.planet}</p>
                         <p><b>Data:</b> {trip.date}</p>
-                        <p><b>Duração:</b> {trip.durationInDays}</p>
                         <p><b>Descrição:</b> {trip.description}</p>
+                        <p><b>Duração:</b> {trip.durationInDays}</p>
                     </div>
                 </div>
             }) }

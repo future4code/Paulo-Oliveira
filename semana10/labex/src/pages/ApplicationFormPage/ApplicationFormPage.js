@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 import { useHistory } from 'react-router-dom'
 import { goToLastPage } from '../../routes/coordinator'
 
+import ApplicationCandidate from '../../components/ApplicateCandidade'
+
 const ApplicationFormPage = () => {
     const history = useHistory()
 
@@ -9,7 +11,7 @@ const ApplicationFormPage = () => {
         <Fragment>
         <p>Inscreva-se para uma viagem</p>
         <button onClick={ () => goToLastPage(history) }>Voltar</button>
-        <button>enviar</button>
+        <ApplicationCandidate />
         </Fragment>
     )
 }

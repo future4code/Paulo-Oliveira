@@ -1,26 +1,28 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import axios from 'axios'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
+
+import {useProtectedPage} from '../../hooks/useProtectedPage'
 import { goToLastPage } from '../../routes/coordinator'
-import { useProtectedPage } from '../../hooks/useProtectedPage'
+import Candidates from '../../components/Candidates'
+import ApprovedCandidates from '../../components/ApprovedCandidates'
 
 const TripDetailsPage = () => {
     useProtectedPage()
-    const [trip, setTrip] = useState({}) 
     const history = useHistory()
+    const { id } = useParams()
+    const [trip, setTrip] = useState({})
 
     useEffect(() => {
-        getTripDetail('91QLz39ewiPyjTMG3ivW')
+        getTripDetail()
     }, [])
 
-    const getTripDetail = (id) => {
-        const token = window.localStorage.getItem('token')
-
+    const getTripDetail = () => {
         axios
             .get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/paulo-oliveira-cruz/trip/${id}`,
                 {
                     headers: {
-                        auth: token
+                        auth: localStorage.getItem('token')
                     }
                 }
             )
@@ -32,19 +34,24 @@ const TripDetailsPage = () => {
             })
     }
 
-    const logout = () => {
-        window.localStorage.removeItem('token')
+    useEffect(() => {
+      if(!localStorage.getItem('token') || localStorage.getItem('token') === '') {
         history.push('/login')
-    }
+      }
+    },[])
 
     return(
         <Fragment>
         <p>Detalhes da Viagem</p>
         <h2>{ trip.name }</h2>
-        <p>{ trip.date }</p>
         <p>{ trip.description }</p>
+        <p>{ trip.planet }</p>
+        <p>{ trip.durationInDays }</p>
+        <p>{ trip.date }</p>
         <button onClick={ () => goToLastPage(history) }>Voltar</button>
-        <button onClick={ logout }>Logout</button>
+        
+        <Candidates tripId={ trip.id } candidates={ trip.candidates }/>
+        <ApprovedCandidates list={ trip.approved }/>
         </Fragment>
     )
 }

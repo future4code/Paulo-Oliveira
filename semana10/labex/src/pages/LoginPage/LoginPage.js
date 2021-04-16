@@ -1,29 +1,34 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
-import { goToHomePage } from '../../routes/coordinator'
 
+import { goToHomePage } from '../../routes/coordinator'
+import { useForm } from '../../hooks/useForm'
 import { Container, StyleContainer, DivInput, DivButton } from './styles'
 
 import Logo from '../../assets/logo.png'
 
+const initialForm = {
+    email: '',
+    password: ''
+}
+
 const LoginPage = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [ form, onChange, resetForm ] = useForm(initialForm)
     const history = useHistory()
 
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
-    }
+    useEffect(() => {
+        if(localStorage.getItem('token')) {
+            history.push('/admin/trips/list')
+        }
+    })
 
-    const handlePassword = (e) => {
-        setPassword(e.target.value)
-    }
-
-    const login = () => {
+    const handleClick = (e) => {
+        e.preventDefault()
+        
         const body = {
-            email: email,
-            password: password
+            email: form.email,
+            password: form.password
         }
 
         axios
@@ -36,6 +41,8 @@ const LoginPage = () => {
             .catch((err) => {
                 console.log(err)
             })
+
+        resetForm()
     }
 
     return( 
@@ -44,22 +51,31 @@ const LoginPage = () => {
                 <img src={ Logo } alt='logo' />
                 <h1>Login</h1>
                 <DivInput>
-                    <input
-                        type='email'
-                        value={ email }
-                        onChange={ handleEmail }
-                        placeholder='E-mail'
-                    />
-                    <input
-                        type='password'
-                        value={ password }
-                        onChange={ handlePassword }
-                        placeholder='Senha'
-                    />
+                    <form onSubmit={ handleClick }>
+                        <input
+                            required
+                            type='email'
+                            name='email'
+                            value={ form.email }
+                            onChange={ onChange }
+                            placeholder='E-mail'
+                            pattern={ "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$" }
+                        />
+                        <input
+                            required
+                            type='password'
+                            name='password'
+                            value={ form.password }
+                            onChange={ onChange }
+                            placeholder='Senha'
+                        />
+                        <div>
+                            <button>Logar</button>
+                        </div>
+                    </form>
                 </DivInput>
                 <DivButton>
-                    <button onClick={ () => goToHomePage(history) }>Voltar</button>
-                    <button onClick={ login }>Entrar</button>
+                <button onClick={ () => goToHomePage(history) }>Voltar</button>
                 </DivButton>
             </StyleContainer>
         </Container>
