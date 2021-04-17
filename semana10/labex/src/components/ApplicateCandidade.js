@@ -38,7 +38,7 @@ const ApplicationCandidate = () => {
 
     const ApplyToTrip = () => {
         if(name === '' || !age || profession === '' || text === '' || country === '' || trip === '') {
-            return alert('Todos os campos são obrigatorios preencher!')
+            return alert('Preencha todos os campos!')
         }
 
         const body = {

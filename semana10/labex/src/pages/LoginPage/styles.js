@@ -16,7 +16,7 @@ export const StyleContainer = styled.div`
     align-items: center;
     border: 1px solid black;
     width: 100vh;
-    height: 80vh;
+    height: 60vh;
     margin: 80px auto;
     background-color: #00000080;
     
@@ -35,6 +35,10 @@ export const DivInput = styled.div`
     flex-direction: column;
     margin: 0 30%;
 
+    div {
+        text-align: center;
+    }
+
     button {
         margin: 30px;
         height: 30px;
@@ -47,7 +51,7 @@ export const DivInput = styled.div`
         :hover {
             background-color: grey;
         }
-        }
+        
     }
 
     input {

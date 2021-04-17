@@ -16,7 +16,7 @@ export const StyleContainer = styled.div`
     align-items: center;
     border: 1px solid black;
     width: 100vh;
-    height: 70vh;
+    height: 60vh;
     margin: 80px auto;
     background-color: #00000080;
 
