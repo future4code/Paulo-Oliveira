@@ -36,9 +36,9 @@ export const DivInput = styled.div`
     margin: 0 30%;
 
     button {
-        height: 50px;
-        width: 150px;
-        margin: 30px 31.5%;
+        margin: 30px;
+        height: 30px;
+        width: 100px;
         outline: none;
         border: none;
         border-bottom: 2px solid black;
@@ -46,7 +46,8 @@ export const DivInput = styled.div`
 
         :hover {
             background-color: grey;
-        } 
+        }
+        }
     }
 
     input {
@@ -65,9 +66,9 @@ export const DivButton = styled.div`
     margin-top: 20px;
 
     button {
-        
-        height: 50px;
-        width: 150px;
+        margin: 30px;
+        height: 30px;
+        width: 100px;
         outline: none;
         border: none;
         border-bottom: 2px solid black;

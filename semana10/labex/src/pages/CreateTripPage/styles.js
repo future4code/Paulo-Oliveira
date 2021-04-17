@@ -8,6 +8,7 @@ export const Container = styled.div`
     background-image: url(${ Bg2 });
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
     color: #fff;
 `
 
@@ -22,13 +23,26 @@ export const StyleContainer = styled.div`
     display: block;
     border: 1px solid black;
     width: 100vh;
+    height: 57vh;
     margin: 0 auto;
     padding: 20px;
     background-color: #00000080;
-`
 
-export const ButtonDiv = styled.div`
-    text-align: center;
+    input {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 2px solid blue;
+    }
+
+    select {
+        width: 100.5%;
+        height: 40px;
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 2px solid blue;
+    }
 
     button {
         margin: 30px;
@@ -37,37 +51,6 @@ export const ButtonDiv = styled.div`
         outline: none;
         border: none;
         border-bottom: 2px solid black;
-        cursor: pointer;
-
-        :hover {
-            background-color: grey;
-        }
-    }
-`
-
-export const TripDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    font-size: 1.2rem;
-    margin: 10px;
-`
-
-export const Div = styled.div`
-    backdrop-filter: blur(3px);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid grey;
-    margin: 10px;
-    padding: 5px 40px;
-    cursor: pointer;
-
-    :hover {
-        background-color: #ffffff50;
-    }
-
-    button {
         cursor: pointer;
 
         :hover {

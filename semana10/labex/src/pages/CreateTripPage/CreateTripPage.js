@@ -1,21 +1,24 @@
-import React, { Fragment, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import React from 'react'
+
+import { Container, StyleContainer, Title } from './styles'
+
+import Header from '../../components/Header'
 import Createform from '../../components/CreateForm'
-
 import {useProtectedPage} from '../../hooks/useProtectedPage'
-import { goToAdminHomePage } from '../../routes/coordinator'
-
 
 const CreateTripPage = () => {
     useProtectedPage()
-    const history = useHistory()
 
     return(
-        <Fragment>
-        <p>Criar Viagem</p>
-        <Createform />
-        <button onClick={ () => goToAdminHomePage(history) }>Voltar</button>
-        </Fragment>
+        <Container>
+            <Header />
+            <Title>
+                <h1>Criar Viagem</h1>
+            </Title>
+            <StyleContainer>
+                <Createform />
+            </StyleContainer>
+        </Container>
     )
 }
 

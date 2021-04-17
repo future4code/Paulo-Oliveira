@@ -1,8 +1,11 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 
-import { goToCreateTripPage, goToHomePage, goToLoginPage } from '../../routes/coordinator'
+import { Container, StyleContainer, Title, ButtonDiv, TripDiv, Div } from './styles'
+
+import Header from '../../components/Header'
+import { goToCreateTripPage, goToHomePage } from '../../routes/coordinator'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 const AdminHomePage = () => {
@@ -54,23 +57,29 @@ const AdminHomePage = () => {
     }
 
     return(
-        <Fragment>
-        <p>Painel Administrativo</p>
-        <button onClick={ () => goToHomePage(history) }>Voltar</button>
-        <button onClick={ () => goToCreateTripPage(history) }>Criar Viagem</button>
-        <button onClick={ logout }>Logout</button>
-        <div>
-            { trips.map((trip) => {
-                return <div key={trip.id}>
-                    <p>{trip.name}</p>
-                    <button
-                        onClick={() => deleteTrip(trip.id)}
-                    >X</button>
-                    <button onClick={ () => history.push(`/admin/trips/${trip.id}`) }>Detalhes</button>
-                </div>
-            }) }
-        </div> 
-        </Fragment>
+        <Container>
+            <Header />
+            <Title>
+                <h1>Painel Administrativo</h1>
+            </Title>
+            <ButtonDiv>
+                <button onClick={ () => goToHomePage(history) }>Voltar</button>
+                <button onClick={ () => goToCreateTripPage(history) }>Criar Viagem</button>
+                <button onClick={ logout }>Logout</button>
+            </ButtonDiv>
+            <StyleContainer>
+            <TripDiv>
+                { trips.map((trip) => {
+                    return <Div key={trip.id} onClick={ () => history.push(`/admin/trips/${trip.id}`) }>
+                        <p>{trip.name}</p>
+                        <button
+                            onClick={() => deleteTrip(trip.id)}
+                        >X</button>
+                    </Div>
+                }) }
+            </TripDiv>
+            </StyleContainer>
+        </Container>
     )
 }
 

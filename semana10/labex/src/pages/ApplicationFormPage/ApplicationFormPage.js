@@ -1,18 +1,21 @@
-import React, { Fragment } from 'react'
-import { useHistory } from 'react-router-dom'
-import { goToLastPage } from '../../routes/coordinator'
+import React from 'react'
 
-import ApplicationCandidate from '../../components/ApplicateCandidade'
+import { Container, Title, StyleContainer } from './styles'
+
+import Header from '../../components/Header'
+import ApplicateCandidate from '../../components/ApplicateCandidade'
 
 const ApplicationFormPage = () => {
-    const history = useHistory()
-
     return(
-        <Fragment>
-        <p>Inscreva-se para uma viagem</p>
-        <button onClick={ () => goToLastPage(history) }>Voltar</button>
-        <ApplicationCandidate />
-        </Fragment>
+        <Container>
+            <Header />
+            <Title>
+                <h1>Inscreva-se para uma viagem</h1>
+            </Title>
+                <StyleContainer>
+                <ApplicateCandidate />
+                </StyleContainer>
+        </Container>
     )
 }
 

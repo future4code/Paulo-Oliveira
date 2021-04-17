@@ -34,7 +34,6 @@ const LoginPage = () => {
         axios
             .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/paulo-oliveira-cruz/login', body)
             .then((res) => {
-                console.log(res.data)
                 window.localStorage.setItem('token', res.data.token)
                 history.push('/admin/trips/list')
             })

@@ -1,9 +1,15 @@
 import React, { useEffect } from 'react'
-import styled from 'styled-components'
 import axios from 'axios'
+import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
 import { useForm } from '../hooks/useForm'
+import { goToAdminHomePage } from '../routes/coordinator'
+
+const ButtonDiv = styled.div`
+    display: flex;
+    justify-content: center;
+`
 
 const initialForm = {
     name: '',
@@ -19,7 +25,7 @@ const Createform = () => {
 
     const handleClick = (e) => {
         e.preventDefault()
-        console.log(form)
+        
         resetForm()
     }
 
@@ -49,12 +55,11 @@ const Createform = () => {
                 }
             })
             .then((res) => {
-                console.log(res.data)
                 alert('Viagem criada!')
                 history.push('/admin/trips/list')
             })
             .catch((err) => {
-                alert(err)
+                alert('Não enviado')
             })
     }
 
@@ -71,7 +76,7 @@ const Createform = () => {
                 placeholder='Planeta'
                 onChange={ onChange }
                 value={ form.planet }
-                displayEmpty
+                displayempty='true'
             >
                 <option disabled  value={ '' }>Escolha um planeta</option>
                 <option>Mercúrio</option>
@@ -99,16 +104,16 @@ const Createform = () => {
             />
             <input
                 type='number'
+                min='50'
                 name='durationInDays'
                 placeholder='Duração'
                 onChange={ onChange }
                 value={ form.durationInDays }
             />
-            <button
-                onClick={ createTrip }
-            >
-                Enviar
-            </button>
+            <ButtonDiv>
+                <button onClick={ () => goToAdminHomePage(history) }>Voltar</button>
+                <button onClick={ createTrip }> Enviar </button>
+            </ButtonDiv>
         </form>
     )
 }

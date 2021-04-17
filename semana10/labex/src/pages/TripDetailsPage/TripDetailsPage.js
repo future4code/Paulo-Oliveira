@@ -1,7 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useHistory, useParams } from 'react-router-dom'
 
+import { Container, StyleContainer, Title, PlanetDiv } from './styles'
+
+import Header from '../../components/Header'
 import {useProtectedPage} from '../../hooks/useProtectedPage'
 import { goToLastPage } from '../../routes/coordinator'
 import Candidates from '../../components/Candidates'
@@ -15,7 +18,7 @@ const TripDetailsPage = () => {
 
     useEffect(() => {
         getTripDetail()
-    }, [])
+    })
 
     const getTripDetail = () => {
         axios
@@ -38,21 +41,27 @@ const TripDetailsPage = () => {
       if(!localStorage.getItem('token') || localStorage.getItem('token') === '') {
         history.push('/login')
       }
-    },[])
+    })
 
     return(
-        <Fragment>
-        <p>Detalhes da Viagem</p>
-        <h2>{ trip.name }</h2>
-        <p>{ trip.description }</p>
-        <p>{ trip.planet }</p>
-        <p>{ trip.durationInDays }</p>
-        <p>{ trip.date }</p>
-        <button onClick={ () => goToLastPage(history) }>Voltar</button>
-        
-        <Candidates tripId={ trip.id } candidates={ trip.candidates }/>
-        <ApprovedCandidates list={ trip.approved }/>
-        </Fragment>
+        <Container>
+            <Header />
+            <Title>
+                <h1>Detalhes da Viagem</h1>
+            </Title>
+            <StyleContainer>
+                <PlanetDiv>
+                    <h2><b>Nome: </b>{ trip.name }</h2>
+                    <p><b>Descrição: </b>{ trip.description }</p>
+                    <p><b>Planeta: </b>{ trip.planet }</p>
+                    <p><b>Duração: </b>{ trip.durationInDays }</p>
+                    <p><b>Data: </b>{ trip.date }</p>
+                    <button onClick={ () => goToLastPage(history) }>Voltar</button>
+                </PlanetDiv>
+                <Candidates tripId={ trip.id } candidates={ trip.candidates }/>
+                <ApprovedCandidates list={ trip.approved }/>
+            </StyleContainer>
+        </Container>
     )
 }
 
