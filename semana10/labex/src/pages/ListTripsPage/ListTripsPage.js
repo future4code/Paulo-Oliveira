@@ -35,7 +35,13 @@ const ListTripsPage = () => {
         <StyleContainer>
                 <ButtonDiv>
                     <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat rutrum laoreet. Vestibulum efficitur ullamcorper leo quis tempus. Morbi luctus, eros sit amet molestie rutrum, nibh velit cursus tortor, ut convallis eros leo id lectus. Ut risus nunc, imperdiet sodales turpis mattis, pharetra aliquet ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nibh massa, eleifend eu lobortis quis, blandit at augue. Suspendisse potenti. Duis et volutpat quam. Etiam venenatis interdum varius. Sed varius sapien ipsum, eu congue augue commodo ac.</p>
+                        <p>Nascida com a missão de revolucionar a tecnologia espacial, a <b>LabeX</b> projeta, fabrica e 
+                         lança foguetes que, atualmente, entregam cargas na órbita terrestre. Apesar disso, o foco 
+                         principal da companhia é permitir que as pessoas possam habitar outros planetas.<br/><br/>
+                         Para alcançar seu principal objetivo, a empresa tem trabalhado para que o turismo espacial 
+                         se torne realidade, através da construção de foguetes reutilizáveis, como a família Falcão 
+                         e a cápsula Dragão.
+                        </p>
                     </div>
                     <div>
                     <button onClick={ () => goToLastPage(history) }>Voltar</button>

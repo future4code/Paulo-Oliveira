@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import Bg2 from '../../assets/bg2.jpg'
+import Bg5 from '../../assets/bg5.jpg'
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    background-image: url(${ Bg2 });
+    background-image: url(${ Bg5 });
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -29,28 +29,51 @@ export const StyleContainer = styled.div`
     background-color: #00000080;
 
     input {
+        backdrop-filter: blur(3px);
         width: 100%;
         height: 40px;
         margin-bottom: 10px;
-        border: none;
-        border-bottom: 2px solid blue;
+        background-color: transparent;
+        color: white;
+        border: 1px solid grey;
+
+        ::placeholder {
+            padding-left: 5px;
+            color: white;
+        }
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 1;
+        display: block;
+        background: url('https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png') no-repeat;
     }
 
     select {
-        width: 100.5%;
+        backdrop-filter: blur(3px);
+        width: 101%;
         height: 40px;
         margin-bottom: 10px;
-        border: none;
-        border-bottom: 2px solid blue;
+        background-color: transparent;
+        color: white;
+        border: 1px solid grey;
+
+        option {
+            background-color: black;
+        }
     }
 
     button {
         margin: 30px;
         height: 30px;
-        width: 100px;
+        width: 180px;
         outline: none;
         border: none;
-        border-bottom: 2px solid black;
+        border: 2px solid white;
+        background-color: transparent;
+        color: white;
+        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
         cursor: pointer;
 
         :hover {

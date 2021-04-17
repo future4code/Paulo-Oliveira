@@ -64,7 +64,7 @@ const ApplicationCandidate = () => {
 
     const ageItens = () => {
         let itens = []
-        for(let i = 20; i < 56; i++) {
+        for(let i = 18; i < 81; i++) {
             itens.push(<option value={ i }>{ i }</option>)
         }
 
@@ -79,7 +79,7 @@ const ApplicationCandidate = () => {
 
     return (
         <Fragment>
-            <div key={ name }>
+            <div >
                 <input 
                     onChange={ (e) => { setName(e.target.value) } }
                     value={ name }

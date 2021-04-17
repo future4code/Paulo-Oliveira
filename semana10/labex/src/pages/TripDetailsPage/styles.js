@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import Bg from '../../assets/bg1.jpg'
+import Bg6 from '../../assets/bg6.jpg'
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    background-image: url(${ Bg });
+    background-image: url(${ Bg6 });
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
@@ -28,18 +28,23 @@ export const StyleContainer = styled.div`
     text-align: left;
 
     button {
-            margin: 30px;
-            height: 30px;
-            width: 100px;
-            outline: none;
-            border: none;
-            border-bottom: 2px solid black;
-            cursor: pointer;
+        backdrop-filter: blur(3px);
+        margin: 30px;
+        height: 30px;
+        width: 180px;
+        outline: none;
+        border: none;
+        border: 2px solid white;
+        background-color: transparent;
+        color: white;
+        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
+        cursor: pointer;
 
-            :hover {
-                background-color: grey;
-            }
+        :hover {
+            background-color: grey;
         }
+    }
 `
 
 export const PlanetDiv = styled.div`

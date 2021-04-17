@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-import Bg1 from '../../assets/bg.jpg'
+import Bg7 from '../../assets/bg7.jpg'
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    background-image: url(${ Bg1 });
+    background-image: url(${ Bg7 });
     background-repeat: no-repeat;
     background-size: cover;
-    color: #fff;
+    color: white;
 `
 
 export const StyleContainer = styled.div`
@@ -20,7 +20,7 @@ export const Title = styled.div`
     margin: 0 auto;
     margin-top: 20px;
     font-size: 1.3rem;
-    text-shadow: 2px 2px 20px black, 3px 3px 20px black;
+    text-shadow: 2px 2px 20px grey, 3px 3px 20px grey;
 `
 
 export const ButtonDiv = styled.div`
@@ -30,17 +30,23 @@ export const ButtonDiv = styled.div`
     margin: 0 auto;
 
     p {
-        padding: 50px;
+        padding: 0 50px;
         padding-top: 80px;
+        color: black;
+        font-weight: 700;
     }
 
     button {
             margin: 30px;
             height: 30px;
-            width: 100px;
+            width: 180px;
             outline: none;
             border: none;
-            border-bottom: 2px solid black;
+            border: 2px solid black;
+            background-color: transparent;
+            color: black;
+            font-family: 'Raleway', sans-serif;
+            font-size: 18px;
             cursor: pointer;
 
             :hover {

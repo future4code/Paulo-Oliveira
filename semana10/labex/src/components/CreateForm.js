@@ -92,7 +92,6 @@ const Createform = () => {
             <input 
                 type='date'
                 name='date'
-                placeholder='Data'
                 onChange={ onChange }
                 value={ form.date }
             />

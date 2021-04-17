@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import Bg2 from '../../assets/bg2.jpg'
+import Bg5 from '../../assets/bg5.jpg'
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    background-image: url(${ Bg2 });
+    background-image: url(${ Bg5 });
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
@@ -31,12 +31,17 @@ export const ButtonDiv = styled.div`
     text-align: center;
 
     button {
+        backdrop-filter: blur(3px);
         margin: 30px;
         height: 30px;
-        width: 100px;
+        width: 180px;
         outline: none;
         border: none;
-        border-bottom: 2px solid black;
+        border: 2px solid white;
+        background-color: transparent;
+        color: white;
+        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
         cursor: pointer;
 
         :hover {
