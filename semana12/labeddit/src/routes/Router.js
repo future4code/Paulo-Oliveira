@@ -18,8 +18,11 @@ const Router = () => {
             <Route exact path='/feed'>
                 <FeedPage/>
             </Route>
-            <Route exact path='/feed/detail'>
+            <Route exact path='/feed/detail/:id'>
                 <PostDetailPage/>
+            </Route>
+            <Route>
+                <h1>Error 404</h1>
             </Route>
         </Switch>
     )

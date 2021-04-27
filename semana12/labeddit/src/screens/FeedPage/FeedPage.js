@@ -1,41 +1,87 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { Container } from './styled'
 
-import { Container, CreatePost, ListPost, TextDiv, LikeDiv } from './styled'
+import useProtectedPage from '../../hooks/useProtectedPage'
+import { BASE_URL } from '../../constants/urls'
 
-import { goToLogin, goToPostDetail } from '../../routes/coordinator'
+import { goToLogout, goToPostDetail } from '../../routes/coordinator'
+import axios from 'axios'
 
-import ArrowUp from '../../assets/arrow_up.svg'
-import ArrowDown from '../../assets/arrow_down.svg'
 
 const FeedPage = () => {
+    useProtectedPage()
+    const formDefault = {title: '', text: ''}
+    const [form, setForm] = useState(formDefault)
     const history = useHistory()
+    const [posts, setPosts] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        getPosts()
+    }, [])
+
+    const onChange = (event) => {
+        const {name, value} = event.target
+        setForm({...form, [name]: value})
+    }
+    
+    const createPost = async (event) => {
+        event.preventDefault()
+        const headers = {
+            headers: {
+                Authorization: window.localStorage.getItem('token')
+            }
+        }
+
+        try {
+            await axios.post(`${BASE_URL}/posts`, form, headers)
+            window.alert('Post criado com sucesso!')
+        }
+
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getPosts = async () => {
+        const headers = {
+            headers: {
+                Authorization: window.localStorage.getItem('token')
+            }
+        }
+
+        try {
+            const response = await
+                axios
+                    .get(`${BASE_URL}/posts`, headers)
+                    setPosts(response.data.posts)
+                    setLoading(false)
+        }
+
+        catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <Container>
             <h1>Feed</h1>
-            <button onClick={() => goToLogin(history)}>Logout</button>
-            <CreatePost>
-                <div>
-                    <h2>Escreva seu post</h2>
-                </div>
+            <button onClick={() => goToLogout(history)}>Logout</button>
+            <form onSubmit={createPost}>
+                <input name="title" type="text" onChange={onChange} placeholder="title" required/>
+                <input name="text" type="text" onChange={onChange} placeholder="text" required/>
                 <button>Postar</button>
-            </CreatePost>
-            <ListPost>
-                <h3>Nome de usuário</h3>
-                <TextDiv>
-                    <p>texto do post</p>
-                </TextDiv>
-                <LikeDiv>
-                    <div>
-                        <img src={ ArrowUp } alt='up'/>
-                        <p> 0 </p>
-                        <img src={ ArrowDown } alt='down'/>
+            </form>
+            {!loading && posts.map((post) => {
+                return <div key={post.id} onClick={() => goToPostDetail(history, post.id)}>
+                        <h1>{post.title}</h1>
+                        <p>{post.text}</p>
+                        <p>{post.username}</p>
+                        <p>Votos: {post.votesCount} </p>
+                        <p>Comentários: {post.commentsCount} </p><hr/>
                     </div>
-                    <p>0 comentarios</p>
-                </LikeDiv>
-            </ListPost>
-            <button onClick={() => goToPostDetail(history)}>Detalhes</button>
+            })}
         </Container>
     )
 }

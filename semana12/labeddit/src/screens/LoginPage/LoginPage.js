@@ -1,27 +1,20 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { goToFeed, goToSignUp } from '../../routes/coordinator'
-import { Container, InputDiv, ButtonDiv } from './styled'
+import { Container, ButtonDiv } from './styled'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage'
+
+import LoginForm from './LoginForm'
 
 const LoginPage = () => {
+    useUnprotectedPage()
     const history = useHistory()
 
     return (
         <Container>
             <h1>Login</h1>
-            <InputDiv>
-                <input
-                    type='email'
-                    placeholder='E-mail'
-                    name='email'
-                />
-                <input
-                    type='password'
-                    placeholder='Senha'
-                    name='password'
-                />
-            </InputDiv>
+            <LoginForm/>
             <ButtonDiv>
                 <button onClick={() => goToFeed(history)}>Feed</button>
                 <button onClick={() => goToSignUp(history)}>Cadastrar</button>

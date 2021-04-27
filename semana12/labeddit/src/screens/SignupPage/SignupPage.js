@@ -1,39 +1,47 @@
-import React, { Fragment } from 'react'
-import { useHistory } from 'react-router-dom'
+import axios from "axios"
+import { useState } from "react"
+import { useHistory } from "react-router"
+import useUnprotectedPage from "../../hooks/useUnprotectedPage"
+import { BASE_URL } from "../../constants/urls"
+import { goToLogin, goToFeed } from "../../routes/coordinator"
 
-import { Container, InputDiv, ButtonDiv } from './styled'
 
-import { goToFeed, goToLogin } from '../../routes/coordinator'
+export default function CadastroPage() {
 
-const SignupPage = () => {
+    useUnprotectedPage()
+
+    const formDefault = {email: "", password: "", username: ""}
+
     const history = useHistory()
+    const [form, setForm] = useState(formDefault)
 
-    return (
-        <Container>
-            <h1>Cadastrar</h1>
-            <InputDiv>
-                <input
-                    type='text'
-                    placeholder='Nome'
-                    name='name'
-                />
-                <input
-                    type='email'
-                    placeholder='E-mail'
-                    name='email'
-                />
-                <input
-                    type='password'
-                    placeholder='Senha'
-                    name='password'
-                />
-            </InputDiv>
-            <ButtonDiv>
-                <button onClick={() => goToFeed(history)}>Feed</button>
-                <button onClick={() => goToLogin(history)}>Login</button>
-            </ButtonDiv>
-        </Container>
-    )
+    const onChange = (event) => {
+        const {name, value} = event.target
+        setForm({...form, [name]: value})
+     }
+
+     const cadastrar = async (event) => {
+        event.preventDefault()
+
+        try {
+            const response = await axios.post(`${BASE_URL}/signup`, form)
+            window.localStorage.setItem("token", response.data.token)
+            goToFeed(history)
+        }
+        catch (error) {
+            window.alert("Esse Email já está em uso")
+        }
+    }
+
+    return <div>
+        <h1>CadastroPage</h1>
+        <button onClick={() => goToLogin(history)}>Login</button>
+
+        <form onSubmit={cadastrar}>
+            <input name="username" type="text" onChange={onChange} placeholder="username" required/>
+            <input name="email" type="email" onChange={onChange} placeholder="email" required/>
+            <input name="password" type="password" onChange={onChange} placeholder="password" required/>
+            <button>Cadastrar</button>
+        </form>
+    </div>
 }
-
-export default SignupPage
