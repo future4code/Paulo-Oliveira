@@ -3,7 +3,8 @@ import { useState } from "react"
 import { useHistory } from "react-router"
 import  useUnprotectedPage  from '../../hooks/useUnprotectedPage'
 import { BASE_URL } from '../../constants/urls'
-import { goToSignUp, goToFeed } from "../../routes/coordinator"
+import { goToFeed } from "../../routes/coordinator"
+import Button from "../../constants/Button"
 
 
 export default function LoginPage() {
@@ -34,13 +35,11 @@ export default function LoginPage() {
     }
 
     return <div>
-                <h1>LoginPage</h1>
-
                 <form onSubmit={logar}>
-                    <input name="email" type="email" onChange={onChange} placeholder="email" required/>
-                    <input name="password" type="password" onChange={onChange} placeholder="password" required/>
-                    <button>Entrar</button>
+                    <h1>Login</h1>
+                    <input name="email" type="email" onChange={onChange} placeholder="E-mail" required/>
+                    <input name="password" type="password" onChange={onChange} placeholder="Senha" required/>
+                    <Button>Entrar</Button>
                 </form>
-                <button onClick={() => goToSignUp(history)}>Cadastro</button>
             </div>
 }

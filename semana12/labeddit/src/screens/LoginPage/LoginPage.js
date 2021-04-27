@@ -1,8 +1,9 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-import { goToFeed, goToSignUp } from '../../routes/coordinator'
-import { Container, ButtonDiv } from './styled'
+import { goToSignUp } from '../../routes/coordinator'
+import { Container, LoginDiv, SignupDiv } from './styled'
+import Button from '../../constants/Button'
 import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
 import LoginForm from './LoginForm'
@@ -13,12 +14,13 @@ const LoginPage = () => {
 
     return (
         <Container>
-            <h1>Login</h1>
-            <LoginForm/>
-            <ButtonDiv>
-                <button onClick={() => goToFeed(history)}>Feed</button>
-                <button onClick={() => goToSignUp(history)}>Cadastrar</button>
-            </ButtonDiv>
+            <LoginDiv>
+                <LoginForm/>
+            </LoginDiv>
+            <SignupDiv>
+                <h2>Ainda não tem conta? Cadastre-se!</h2>
+                <Button onClick={() => goToSignUp(history)}>Cadastrar</Button>
+            </SignupDiv>
         </Container>
     )
 }
