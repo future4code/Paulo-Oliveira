@@ -11,13 +11,17 @@ export const LoginDiv = styled.div`
     height: 80vh;
     align-items: center;
     justify-content: start;
-    box-shadow: 1px 1px 20px grey;
+    box-shadow: 1px 1px 10px grey;
     margin: 50px;
-    background-color: #E0263E;
+    background-color: #fff;
     border-radius: 10px;
     z-index: 1;
 
-     form {
+    img {
+        width: 400px;
+    }
+
+    form {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -29,6 +33,7 @@ export const LoginDiv = styled.div`
         width: 300px;
         height: 30px;
         border: none;
+        outline: none;
         border-bottom: 5px solid grey;
     }
 `
@@ -41,7 +46,7 @@ export const SignupDiv = styled.div`
     width: 30%;
     height: 100vh;
     background-color: white;
-    box-shadow: 3px 3px 20px black;
+    box-shadow: 3px 3px 10px black;
     margin-left: -600px;
     z-index: 2;
 `

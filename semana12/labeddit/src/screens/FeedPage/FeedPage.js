@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { useHistory } from 'react-router-dom'
-import { Container } from './styled'
+import { Container, CreatePost, LikeDiv, ListPost, PostContainer } from './styled'
 
+import arrowUp from '../../assets/arrow_up.svg'
+import arrowDown from '../../assets/arrow_down.svg'
+
+import { goToPostDetail } from '../../routes/coordinator'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import { BASE_URL } from '../../constants/urls'
-
-import { goToLogout, goToPostDetail } from '../../routes/coordinator'
-import axios from 'axios'
-
+import Button from '../../constants/Button'
+import Header from '../../components/Header/Header'
 
 const FeedPage = () => {
     useProtectedPage()
@@ -66,21 +69,31 @@ const FeedPage = () => {
 
     return (
         <Container>
-            <h1>Feed</h1>
-            <button onClick={() => goToLogout(history)}>Logout</button>
-            <form onSubmit={createPost}>
-                <input name="title" type="text" onChange={onChange} placeholder="title" required/>
-                <input name="text" type="text" onChange={onChange} placeholder="text" required/>
-                <button>Postar</button>
-            </form>
+            <Header/>
+            <CreatePost>
+                <h2>Criar post</h2>
+                <form onSubmit={createPost}>
+                    <input name="title" type="text" onChange={onChange} placeholder="Título" required/>
+                    <textarea name="text" type="text" onChange={onChange} placeholder="Texto" required/>
+                    <Button>Postar</Button>
+                </form>
+            </CreatePost>
             {!loading && posts.map((post) => {
-                return <div key={post.id} onClick={() => goToPostDetail(history, post.id)}>
-                        <h1>{post.title}</h1>
-                        <p>{post.text}</p>
-                        <p>{post.username}</p>
-                        <p>Votos: {post.votesCount} </p>
-                        <p>Comentários: {post.commentsCount} </p><hr/>
-                    </div>
+                return <ListPost key={post.id}>
+                        <LikeDiv>
+                            <div>
+                                <img src={ arrowUp } alt='voto' />
+                                <p>{post.votesCount} </p>
+                                <img src={ arrowDown } alt='voto' />
+                            </div>
+                        </LikeDiv>
+                        <PostContainer onClick={() => goToPostDetail(history, post.id)}>
+                            <h3>{post.title}</h3>
+                            <p>{post.text}</p>
+                            <p><b>{post.username}</b></p>
+                            <p>{post.commentsCount} comentários</p>
+                        </PostContainer>
+                    </ListPost>
             })}
         </Container>
     )

@@ -4,45 +4,103 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #DAE0E6;
+    height: 100%;
 `
 
 export const CreatePost = styled.div`
-    border: 1px solid black;
-    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightgrey;
+    width: 65%;
+    height: 55vh;
     text-align: center;
+    margin: 20px;
+    margin-top: 100px;
+    background-color: #fff;
+    border-radius: 5px;
 
-    div {
-        border-bottom: 1px solid black;
-        height: 15vh;
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        input {
+            margin: 10px;
+            width: 500px;
+            height: 30px;
+            outline: none;
+        }
+
+        textarea {
+            resize: none;
+            width: 500px;
+            height: 160px;
+            outline: none;
+        }
+
+        button {
+            margin: 10px;
+        }
     }
+
+    
 `
 
 export const ListPost = styled.div`
-    border: 1px solid black;
-    width: 40%;
+    display: flex;
+    flex-direction: row;
     text-align: center;
+    box-shadow: 1px 1px 1px lightgrey;
+    border: 1px solid lightgrey;
+    width: 65%;
     margin: 20px 0;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
 
-    h3 {
-        border-bottom: 1px solid black;
+    :hover {
+        border: 1px solid grey;
+        transition: 0.2s;
+    }
+
+    h3, p {
+        margin: 20px 30px;
     }
 `
 
-export const TextDiv = styled.div`
-    height: 15vh;
-    text-align: center;
-    border-bottom: 1px solid black;
+export const PostContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
 `
 
 export const LikeDiv = styled.div`
     display: flex;
-    justify-content: space-between;
-    margin: 0 10px;
+    min-width: 50px;
+    background-color: #F8F9FA;
+    border-radius: 5px;
 
     div {
         display: flex;
-        justify-content: row;
+        flex-direction: column;
         align-items: center;
+        margin-left:10px;
+        margin-top: 10px;
+
+        img {
+            cursor: pointer;
+
+            :hover {
+                background-color: #E7E7E7;
+            }
+        }
 
         p {
             margin: 0 5px;

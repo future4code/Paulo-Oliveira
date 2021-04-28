@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router"
 import useProtectedPage from "../../hooks/useProtectedPage"
+import Button from '../../constants/Button'
 import { BASE_URL } from "../../constants/urls"
 import { goToFeed, goToLogout } from "../../routes/coordinator"
 
@@ -68,13 +69,13 @@ export default function PostPage() {
 
     return <div>
         <h1>PostPage</h1>
-        <button onClick={() => goToFeed(history)}>Feed</button>
-        <button onClick={() => goToLogout(history)}>Logout</button>
+        <Button onClick={() => goToFeed(history)}>Feed</Button>
+        <Button onClick={() => goToLogout(history)}>Logout</Button>
         {!loading && <h1>{post.title}</h1>}
         {!loading && <p>{post.text}</p>}
         <form onSubmit={createComment}>
             <input name="text" type="text" onChange={onChange} placeholder="text" required/>
-            <button>Comentar</button>
+            <Button>Comentar</Button>
         </form>
         {!loading && post.comments.map((comment) => {
             return <div key={comment.id}>

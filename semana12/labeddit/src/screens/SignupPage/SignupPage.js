@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { useHistory } from "react-router"
 import useUnprotectedPage from "../../hooks/useUnprotectedPage"
+import Button from '../../constants/Button'
 import { BASE_URL } from "../../constants/urls"
 import { goToLogin, goToFeed } from "../../routes/coordinator"
 
@@ -35,13 +36,13 @@ export default function CadastroPage() {
 
     return <div>
         <h1>CadastroPage</h1>
-        <button onClick={() => goToLogin(history)}>Login</button>
+        <Button onClick={() => goToLogin(history)}>Login</Button>
 
         <form onSubmit={cadastrar}>
             <input name="username" type="text" onChange={onChange} placeholder="username" required/>
             <input name="email" type="email" onChange={onChange} placeholder="email" required/>
             <input name="password" type="password" onChange={onChange} placeholder="password" required/>
-            <button>Cadastrar</button>
+            <Button>Cadastrar</Button>
         </form>
     </div>
 }
