@@ -1,6 +1,10 @@
 import axios from "axios"
 import { useState } from "react"
 import { useHistory } from "react-router"
+
+import { Container, LoginDiv } from "./styled"
+import logo from '../../assets/logo.png'
+
 import useUnprotectedPage from "../../hooks/useUnprotectedPage"
 import Button from '../../constants/Button'
 import { BASE_URL } from "../../constants/urls"
@@ -34,15 +38,20 @@ export default function CadastroPage() {
         }
     }
 
-    return <div>
-        <h1>CadastroPage</h1>
-        <Button onClick={() => goToLogin(history)}>Login</Button>
-
+    return <Container>
+        <LoginDiv>
+        <img src={logo}/>
+        <h1>Cadastre-se</h1>
+        
         <form onSubmit={cadastrar}>
-            <input name="username" type="text" onChange={onChange} placeholder="username" required/>
-            <input name="email" type="email" onChange={onChange} placeholder="email" required/>
-            <input name="password" type="password" onChange={onChange} placeholder="password" required/>
-            <Button>Cadastrar</Button>
+            <input name="username" type="text" onChange={onChange} placeholder="Nome de usuário" required/>
+            <input name="email" type="email" onChange={onChange} placeholder="E-mail" required/>
+            <input name="password" type="password" onChange={onChange} placeholder="Senha" required/>
+            <div>
+                <Button>Cadastrar</Button>
+                <Button onClick={() => goToLogin(history)}>Login</Button>
+            </div>
         </form>
-    </div>
+        </LoginDiv>
+    </Container>
 }

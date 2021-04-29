@@ -4,8 +4,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #DAE0E6;
-    height: 100%;
+    background-color: #FF471A20;
+    background-size: 100% 100%;
 `
 
 export const CreatePost = styled.div`
@@ -22,6 +22,11 @@ export const CreatePost = styled.div`
     background-color: #fff;
     border-radius: 5px;
 
+    @media screen and (min-width: 300px) and (max-width: 420px) {
+        width: 90%;
+        margin-top: 120px;
+    }
+
     form {
         display: flex;
         flex-direction: column;
@@ -33,6 +38,10 @@ export const CreatePost = styled.div`
             width: 500px;
             height: 30px;
             outline: none;
+
+            @media screen and (min-width: 300px) and (max-width: 420px) {
+                width: 300px;
+            }
         }
 
         textarea {
@@ -40,14 +49,16 @@ export const CreatePost = styled.div`
             width: 500px;
             height: 160px;
             outline: none;
+
+            @media screen and (min-width: 300px) and (max-width: 420px) {
+                width: 300px;
+            }
         }
 
         button {
             margin: 10px;
         }
     }
-
-    
 `
 
 export const ListPost = styled.div`
@@ -61,6 +72,10 @@ export const ListPost = styled.div`
     background-color: #fff;
     border-radius: 5px;
     cursor: pointer;
+
+    @media screen and (min-width: 300px) and (max-width: 420px) {
+        width: 90%;
+    }
 
     :hover {
         border: 1px solid grey;
@@ -79,12 +94,46 @@ export const PostContainer = styled.div`
     justify-content: center;
     margin: 0 auto;
     width: 100%;
+
+    @media screen and (min-width: 300px) and (max-width: 420px) {
+        h3 {
+            font-size: 22px;
+        }
+
+        p:nth-child(4) {
+            margin-left: 130px;
+        }
+    }
+
+    span {
+        font-size: 20px;
+
+        @media screen and (min-width: 300px) and (max-width: 420px) {
+            font-size: 18px;
+        }
+    }
+`
+
+export const SubtitleDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+
+    p {
+        margin-right: -15px;
+
+        @media screen and (min-width: 300px) and (max-width: 420px) {
+            margin-right: 22px;
+        }
+    }
 `
 
 export const LikeDiv = styled.div`
     display: flex;
     min-width: 50px;
-    background-color: #F8F9FA;
+    background-color: #FF471A10;
     border-radius: 5px;
 
     div {

@@ -40,7 +40,7 @@ export default function LoginPage() {
     return <div>
                 <form onSubmit={logar}>
                     <img src={ logo } alt='logo'/>
-                    <h1>Login</h1>
+                    <h1>Entrar</h1>
                     <input name="email" type="email" onChange={onChange} placeholder="E-mail" required/>
                     <input name="password" type="password" onChange={onChange} placeholder="Senha" required/>
                     <Button>Entrar</Button>

@@ -4,34 +4,86 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #FF471A20;
+    background-size: 100% 100%;
 `
 
 export const ListPost = styled.div`
-    border: 1px solid black;
-    width: 40%;
+    display: flex;
+    flex-direction: row;
     text-align: center;
+    box-shadow: 1px 1px 1px lightgrey;
+    border: 1px solid lightgrey;
+    width: 60%;
     margin: 20px 0;
+    background-color: #fff;
+    border-radius: 5px;
 
-    h3 {
-        border-bottom: 1px solid black;
+    @media screen and (min-width: 300px) and (max-width: 420px) {
+        width: 90%;
+        margin-top: 30px;
+    }
+
+    h1, h3, p {
+        margin: 10px 20px;
     }
 `
 
-export const TextDiv = styled.div`
-    height: 15vh;
-    text-align: center;
-    border-bottom: 1px solid black;
+export const PostContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    margin: 20px;
+    width: 100%;
+
+    @media screen and (min-width: 300px) and (max-width: 420px) {
+        margin-left: -20px;
+
+        h1 {
+            font-size: 22px;
+        }
+    }
+
+    span {
+        font-size: 22px;
+
+        @media screen and (min-width: 300px) and (max-width: 420px) {
+            font-size: 18px;
+        }
+    }
+
+    div {
+        margin: 10px 0;
+
+        @media screen and (min-width: 300px) and (max-width: 420px) {
+            h3 {
+                font-size: 18px;
+            }
+        }
+    }
 `
 
 export const LikeDiv = styled.div`
     display: flex;
-    justify-content: space-between;
-    margin: 0 10px;
+    min-width: 50px;
+    border-radius: 5px;
 
     div {
         display: flex;
-        justify-content: row;
+        flex-direction: column;
         align-items: center;
+        margin-left:10px;
+        margin-top: 10px;
+
+        img {
+            cursor: pointer;
+
+            :hover {
+                background-color: #E7E7E7;
+            }
+        }
 
         p {
             margin: 0 5px;
@@ -39,46 +91,38 @@ export const LikeDiv = styled.div`
     }
 `
 
-export const CreateComent = styled.div`
-    border: 1px solid black;
-    width: 40%;
-    text-align: center;
-
-    div {
-        border-bottom: 1px solid black;
-        height: 12vh;
-    }
-`
-
-export const ListComent = styled.div`
-    border: 1px solid black;
-    width: 40%;
-    text-align: center;
-    margin: 20px 0;
-
-    h3 {
-        border-bottom: 1px solid black;
-    }
-`
-
-export const ComentDiv = styled.div`
-    height: 10vh;
-    text-align: center;
-    border-bottom: 1px solid black;
-`
-
-export const LikeComentDiv = styled.div`
+export const CreateComment = styled.form`
     display: flex;
-    justify-content: space-between;
-    margin: 0 10px;
+    flex-direction: column;
+    margin: 10px;
 
-    div {
-        display: flex;
-        justify-content: row;
-        align-items: center;
+    textarea {
+            resize: none;
+            width: 600px;
+            height: 130px;
+            outline: none;
+            margin: 10px 0;
 
-        p {
-            margin: 0 5px;
+            @media screen and (min-width: 300px) and (max-width: 420px) {
+                width: 250px;
+            }
+        }
+`
+
+export const LikeComment = styled.div`
+    display: flex;
+    padding-left: 17px;
+
+    p {
+        margin: 0 5px;
+        padding: 0;
+    }
+
+    img {
+        cursor: pointer;
+
+        :hover {
+            background-color: #E7E7E7;
         }
     }
 `

@@ -18,7 +18,7 @@ const LoginPage = () => {
                 <LoginForm/>
             </LoginDiv>
             <SignupDiv>
-                <h2>Ainda não tem conta? Cadastre-se!</h2>
+                <h3>Ainda não tem conta? Cadastre-se!</h3>
                 <Button onClick={() => goToSignUp(history)}>Cadastrar</Button>
             </SignupDiv>
         </Container>
