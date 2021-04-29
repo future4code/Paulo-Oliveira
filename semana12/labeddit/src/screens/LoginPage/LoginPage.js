@@ -2,9 +2,9 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { goToSignUp } from '../../routes/coordinator'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 import { Container, LoginDiv, SignupDiv } from './styled'
 import Button from '../../constants/Button'
-import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
 import LoginForm from './LoginForm'
 

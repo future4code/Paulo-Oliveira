@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
-import { format, parseISO } from "date-fns"
-import { ptBR } from "date-fns/locale"
-import { Container, CreatePost, LikeDiv, ListPost, SubtitleDiv, PostContainer } from './styled'
+import { format, parseISO } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
+import { Container, CreatePost, LikeDiv, ListPost, SubtitleDiv, PostContainer } from './styled'
 import arrowUp from '../../assets/arrow_up.svg'
 import arrowUpRed from '../../assets/arrow_up_red.svg'
-
 import arrowDown from '../../assets/arrow_down.svg'
 import arrowDownBlue from '../../assets/arrow_down_blue.svg'
 
@@ -79,7 +78,7 @@ const FeedPage = () => {
 
         const headers = {
             headers: {
-                Authorization: window.localStorage.getItem("token")
+                Authorization: window.localStorage.getItem('token')
             }
         }
 
@@ -98,8 +97,8 @@ const FeedPage = () => {
             <CreatePost>
                 <h2>Nova Postagem</h2>
                 <form onSubmit={createPost}>
-                    <input name="title" type="text" onChange={onChange} placeholder="Título" required/>
-                    <textarea name="text" type="text" onChange={onChange} placeholder="Texto" required/>
+                    <input name='title' type='text' onChange={onChange} placeholder='Título' required/>
+                    <textarea name='text' type='text' onChange={onChange} placeholder='Texto' required/>
                     <Button>Postar</Button>
                 </form>
             </CreatePost>

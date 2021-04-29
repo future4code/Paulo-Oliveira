@@ -6,6 +6,7 @@ export const Container = styled.div`
     align-items: center;
     background-color: #FF471A20;
     background-size: 100% 100%;
+    min-height: 100vh;
 `
 
 export const CreatePost = styled.div`
