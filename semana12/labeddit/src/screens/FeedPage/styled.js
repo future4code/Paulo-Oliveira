@@ -95,8 +95,11 @@ export const PostContainer = styled.div`
     justify-content: center;
     margin: 0 auto;
     width: 100%;
+    text-align: justify;
 
     @media screen and (min-width: 300px) and (max-width: 420px) {
+        text-align: left;
+
         h3 {
             font-size: 22px;
         }

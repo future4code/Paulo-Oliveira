@@ -14,7 +14,7 @@ import { BASE_URL } from '../../constants/urls'
 import { Container, LikeDiv, PostContainer, ListPost, CreateComment, LikeComment } from './styled'
 import Header from '../../components/Header/Header'
 
-export default function PostPage() {
+export default function PostDetailPage() {
 
     useProtectedPage()
 

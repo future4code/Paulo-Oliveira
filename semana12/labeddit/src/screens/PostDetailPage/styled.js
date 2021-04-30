@@ -35,12 +35,13 @@ export const PostContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    text-align: left;
     margin: 20px;
     width: 100%;
+    text-align: justify;
 
     @media screen and (min-width: 300px) and (max-width: 420px) {
         margin-left: -20px;
+        text-align: left;
 
         h1 {
             font-size: 22px;

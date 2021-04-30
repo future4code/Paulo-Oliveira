@@ -10,7 +10,7 @@ import { goToFeed } from '../../routes/coordinator'
 import Button from '../../constants/Button'
 
 
-export default function LoginPage() {
+export default function LoginForm() {
 
     useUnprotectedPage()
 

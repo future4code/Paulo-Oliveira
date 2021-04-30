@@ -83,6 +83,25 @@ export const SignupDiv = styled.div`
     background-image: url('${bg}');
     background-size: cover;
 
+    div {
+        background-color: #fff;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        margin-top: -40px;
+        margin-bottom: 10px;
+    }
+
+    img {
+        height: 150px;
+        
+    }
+
+    p {
+        margin: 20px;
+        text-align: justify;
+    }
+
     h3 {
         color: #fff;
         text-shadow: 1px 1px 5px black;
@@ -101,6 +120,18 @@ export const SignupDiv = styled.div`
         z-index: 1;
         width: 100%;
         height: 22vh;
+
+        div {
+            display: none;
+        }
+
+        img {
+            display: none;
+        }
+
+        p {
+            display: none;
+        }
 
         h3 {
             color: #fff;

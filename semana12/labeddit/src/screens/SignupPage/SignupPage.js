@@ -11,7 +11,7 @@ import { BASE_URL } from '../../constants/urls'
 import { goToLogin, goToFeed } from '../../routes/coordinator'
 
 
-export default function CadastroPage() {
+export default function SignupPage() {
 
     useUnprotectedPage()
 
