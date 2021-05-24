@@ -1,0 +1,26 @@
+{
+   "name": "express-api-template",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "end1": "tsc && node build/endpoint1.js",
+      "end2": "tsc && node build/endpoint2.js",
+      "end3": "tsc && node build/endpoint3.js",
+      "end4": "tsc && node build/endpoint4.js",
+      "end5": "tsc && node build/endpoint5.js",
+      "end6": "tsc && node build/endpoint6.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "cors": "^2.8.5",
+      "express": "^4.17.1"
+   },
+   "devDependencies": {
+      "@types/cors": "^2.8.10",
+      "@types/express": "^4.17.11"
+   }
+}
