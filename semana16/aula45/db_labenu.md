@@ -147,14 +147,120 @@ a)
 
 b) A query é:
     ```
-    
+    SELECT * FROM Actor
+    WHERE (name NOT LIKE "A%") AND salary > 350000;
     ```
     
+c) A query é:
+    ```
+    SELECT * FROM Actor
+    WHERE name LIKE "%G%" OR "%g%";
+    ```
     
+d) A query é:
+    ```
+    SELECT * FROM Actor
+    WHERE (name LIKE "%a%" OR "%A%" OR "%G%" OR "%g%") AND salary BETWEEN 350000 AND 900000;
+    ```
+
+### Exercício 5
+
+a) O tipo TEXT é comumente usado para artigos breves.
+
+A query é:
+    ```
+    CREATE TABLE Movie (
+	id VARCHAR(255) PRIMARY KEY,
+    title VARCHAR(255) NOT NULL UNIQUE,
+    synopsis TEXT NOT NULL,
+    release_date DATE NOT NULL,
+    rating INT NOT NULL
+    );
+    ```
     
+b) A query é:
+    ```
+    INSERT INTO Movie (id, title, synopsis, release_date, rating)
+    VALUES (
+	"001",
+    "Se Eu Fosse Você",
+    "Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos",
+    "2006-01-06",
+    7
+    );
+    ```
     
+c) A query é: 
+    ```
+    INSERT INTO Movie (id, title, synopsis, release_date, rating)
+    VALUES (
+	"002",
+    "Doce de mãe",
+    "Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela",
+    "2012-12-27",
+    10
+    );
+    ```
     
+d) A query é: 
+    ```
+    INSERT INTO Movie (id, title, synopsis, release_date, rating)
+    VALUES (
+	"003",
+    "Dona Flor e Seus Dois Maridos",
+    "Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.",
+    "2017-11-02",
+    8
+    );
+    ```
+
+e) A query é: 
+    ```
+    INSERT INTO Movie (id, title, synopsis, release_date, rating)
+    VALUES (
+	"004",
+    "Bacurau",
+    "Os moradores de Bacurau, um pequeno povoado do sertão brasileiro, descobrem que a comunidade não consta mais em qualquer mapa. Aos poucos, eles percebem algo estranho na região: enquanto drones passeiam pelos céus, estrangeiros chegam à cidade.",
+    "2019-08-23",
+    10
+    );
+    ```
     
+### Exercício 6
+
+a) A query é:
+    ```
+    SELECT id, title, rating FROM Movie WHERE id = "002";
+    ```
     
+b) A query é:
+    ```
+    SELECT * FROM Movie WHERE title = "Bacurau";
+    ```
+ 
+c) A query é:
+    ```
+    SELECT id, title, synopsis FROM Movie WHERE rating >= 7;
+    ```
+
+### Exercício 7
+
+a) A query é:
+    ```
+    SELECT * FROM Movie WHERE title LIKE "%vida%";
+    ```
     
-    
+b) A query é:
+    ```
+    SELECT * FROM Movie WHERE title LIKE "%Você%" OR synopsis LIKE "Você";
+    ```
+  
+c) A query é:
+    ```
+    SELECT * FROM Movie WHERE release_date < "2021-05-24";
+    ```
+
+d) A query é:
+    ```
+    SELECT * FROM Movie WHERE release_date < "2021-05-24" AND (title LIKE "%Você%" OR synopsis LIKE "%Você%") AND rating > 7;
+    ```
