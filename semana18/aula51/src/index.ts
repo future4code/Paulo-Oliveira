@@ -1,6 +1,12 @@
-import app from "./app"
-import editUser from './endpoints/editUser'
-import createUser from './endpoints/createUser'
+import {app} from './server'
+import { AddressInfo } from "net";
 
-app.post('/user/signup', createUser)
-app.put('/user/edit/:id', editUser)
+
+const server = app.listen(process.env.PORT || 3003, () => {
+  if (server) {
+    const address = server.address() as AddressInfo;
+    console.log(`Server is running in http://localhost:${address.port}`);
+  } else {
+    console.error(`Failure upon starting server.`);
+  }
+});
