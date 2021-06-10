@@ -4,16 +4,6 @@ import dotenv from "dotenv"
 
 dotenv.config()
 
-// const myToken = jwt.sign(
-//    {
-//       id: "123456"
-//    },
-//    "hklsdf9347583945yfgdfiguydifgdgdf",
-//    {
-//       expiresIn: "24d"
-//    }
-// )
-
 export const generateToken = (
    payload: authenticationData
 ): string => {
@@ -39,11 +29,3 @@ export const getTokenData = (
       return null
    }
 }
-
-
-// console.log(
-//    jwt.verify(
-//       myToken,
-//       "hklsdf9347583945yfgdfiguydifgdgdf"
-//    )
-// )

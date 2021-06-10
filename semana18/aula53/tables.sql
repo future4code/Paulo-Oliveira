@@ -1,25 +1,25 @@
-CREATE TABLE IF NOT EXISTS to_do_list_users (
-    id VARCHAR(64) PRIMARY KEY,
-    name VARCHAR(64) NOT NULL,
-    nickname VARCHAR(64) NOT NULL,
-    email VARCHAR(64) NOT NULL,
-    role VARCHAR(6) NOT NULL DEFAULT 'NORMAL'
+CREATE TABLE User (
+	id VARCHAR(255) PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS to_do_list_tasks (
-    id VARCHAR(64) PRIMARY KEY,
-    title VARCHAR(64) NOT NULL,
-    description VARCHAR(1024) DEFAULT "No description provided",
-    deadline DATE,
-    status ENUM("TO_DO", "DOING", "DONE") DEFAULT "TO_DO",
-    author_id VARCHAR(64),
-    FOREIGN KEY (author_id) REFERENCES to_do_list_users(id)
-);
+INSERT into User 
+VALUES (001, "gabriel@g.com", "bananita", "normal");
 
-CREATE TABLE IF NOT EXISTS to_do_list_assignees (
-    task_id VARCHAR(64),
-    assignee_id VARCHAR(64),
-    PRIMARY KEY (task_id, assignee_id),
-    FOREIGN KEY (task_id) REFERENCES to_do_list_tasks(id),
-    FOREIGN KEY (assignee_id) REFERENCES to_do_list_users(id)
+
+ALTER TABLE User ADD COLUMN role VARCHAR(255) DEFAULT "normal";
+
+SELECT * FROM User;
+
+CREATE TABLE User_Address (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    street VARCHAR(255) NOT NULL,
+    number VARCHAR(255) NOT NULL,
+    complement VARCHAR(255),
+    neighborhood VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    state VARCHAR(255) NOT NULL,
+    user_id VARCHAR(255) UNIQUE NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES User(id)
 );

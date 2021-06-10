@@ -2,54 +2,77 @@ import { Request, Response } from "express";
 import connection from "../connection";
 import { generateToken } from "../services/authenticator";
 import generateId from "../services/idGenerator";
-import { user, userRole } from "../types";
+import { user, userAdress, userRole } from "../types";
 import { hash } from "../services/hashManager";
+import { getAdressInfo } from "../services/getAdressInfo";
 
 export default async function createUser(
-   req: Request,
-   res: Response
+  req: Request,
+  res: Response
 ): Promise<void> {
-   try {
+  try {
+    const { name, nickname, email, password, role, cep, number, complement } =
+      req.body;
 
-      const { name, nickname, email, password, role } = req.body
+    if (!name || !nickname || !email || !password || !role) {
+      res.statusCode = 422;
+      throw new Error(
+        "Preencha os campos 'name','nickname', 'password', 'email' e 'role'"
+      );
+    }
 
-      if (!name || !nickname || !email || !password || !role) {
-         res.statusCode = 422
-         throw new Error("Preencha os campos 'name','nickname', 'password', 'email' e 'role'")
-      }
+    if (!cep || !number) {
+      res.statusCode = 422;
+      throw new Error("Preencha os campos 'cep' e 'number'");
+    }
 
-      if(role.toUpperCase() !== userRole.ADMIN && role.toUpperCase() !== userRole.NORMAL){
-         res.statusCode = 422
-         throw new Error("Os valores possíveis para 'role' são NORMAL e ADMIN")
-      }
+    if (
+      role.toUpperCase() !== userRole.ADMIN &&
+      role.toUpperCase() !== userRole.NORMAL
+    ) {
+      res.statusCode = 422;
+      throw new Error("Os valores possíveis para 'role' são NORMAL e ADMIN");
+    }
 
-      const [user] = await connection('to_do_list_users')
-         .where({ email })
+    const [user] = await connection("User").where({ email });
 
-      if (user) {
-         res.statusCode = 409
-         throw new Error('Email já cadastrado')
-      }
+    if (user) {
+      res.statusCode = 409;
+      throw new Error("Email já cadastrado");
+    }
 
-      const id: string = generateId();
+    const id: string = generateId();
 
-      const cypherText = await hash(password);
+    const cypherText = await hash(password);
 
-      const newUser: user = { id, name, nickname, email, password: cypherText, role }
+    const newUser: user = {
+      id,
+      name,
+      nickname,
+      email,
+      password: cypherText,
+      role,
+    };
 
-      await connection('to_do_list_users')
-         .insert(newUser)
+    const adressInfos = await getAdressInfo(cep);
 
-      const token: string = generateToken({ id, role })
+    const newAdress: userAdress = {
+      street: adressInfos.street,
+      number,
+      neighborhood: adressInfos.neighborhood,
+      complement: complement,
+      city: adressInfos.city,
+      state: adressInfos.state,
+      user_id: id,
+    };
+    await connection("User").insert(newUser);
 
-      res.status(201).send({ token })
+    await connection("User_Adress").insert(newAdress);
 
-   } catch (error) {
+    const token: string = generateToken({ id, role });
 
-      if (res.statusCode === 200) {
-         res.status(500).send({ message: "Internal server error" })
-      } else {
-         res.send({ message: error.message })
-      }
-   }
+    res.status(201).send({ token });
+  } catch (error) {
+    res.send({ message: error.message });
+  }
 }

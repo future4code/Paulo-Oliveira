@@ -17,7 +17,7 @@ export default async function login(
          throw new Error("'email' e 'senha' são obrigatórios ")
       }
 
-      const [user] = await connection("to_do_list_users")
+      const [user] = await connection("User")
          .where({ email });
 
       const hashCompare = await compare(password, user.password);

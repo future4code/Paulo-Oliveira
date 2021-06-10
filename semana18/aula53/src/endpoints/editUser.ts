@@ -31,7 +31,7 @@ export default async function createUser(
          throw new Error("caí aqui")
       }
 
-      await connection('to_do_list_users')
+      await connection('User')
          .update({ name, nickname })
          .where({ id: tokenData.id })
 
